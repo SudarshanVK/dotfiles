@@ -19,7 +19,7 @@ command_timeout = 2000
 palette="wombat"
 
 # Inserts a blank line between shell prompts
-add_newline = true
+# add_newline = true
 
 # Define custom colors
 [palettes.tokyo_night]
@@ -55,9 +55,9 @@ truncation_length = 4
 truncate_to_repo = false
 
 [character]
-success_symbol = '[>](bold cyan)'
-error_symbol = '[>](bold red)'
-vicmd_symbol = '[>](bold green)'
+success_symbol = '[ᐅ](bold cyan)'
+error_symbol = '[ᐅ](bold red)'
+vicmd_symbol = '[ᐅ](bold green)'
 
 [docker_context]
 symbol = ' '

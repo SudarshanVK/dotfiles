@@ -25,3 +25,4 @@ _darcs
 brew.txt
 brew_cask.txt
 nix
+*.ttf

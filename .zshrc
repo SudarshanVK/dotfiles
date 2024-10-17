@@ -40,6 +40,14 @@ function tabcolor {
 }
 tabcolor
 
+function nix-update() {
+    cd /dotfiles/nix && nix flake update
+}
+
+function nix-install() {
+    darwin-rebuild switch --flake ~/dotfiles/nix#macos
+}
+
 # Pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
