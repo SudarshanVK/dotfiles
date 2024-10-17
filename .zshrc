@@ -41,7 +41,7 @@ function tabcolor {
 tabcolor
 
 function nix-update() {
-    cd /dotfiles/nix && nix flake update
+    (cd /dotfiles/nix && nix flake update)
 }
 
 function nix-install() {
