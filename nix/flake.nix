@@ -16,6 +16,12 @@
       nixpkgs.config.allowUnfree = true;
       environment.systemPackages =
         [
+            pkgs.fira-code-nerdfont
+            pkgs.nerdfonts
+            pkgs.meslo-lgs-nf
+            pkgs.source-code-pro
+            pkgs.anonymousPro
+            pkgs.hack-font
             pkgs.neovim
             pkgs.asciinema-agg
             pkgs.asciinema
@@ -25,7 +31,6 @@
             pkgs.docker-compose
             pkgs.eza
             pkgs.fd
-            pkgs.jankyborders
             pkgs.fzf
             pkgs.git
             pkgs.delta
@@ -48,14 +53,22 @@
             pkgs.zoxide
             pkgs.zsh
         ];
+
+      fonts.packages = with pkgs; [
+
+        (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+      ];
+
       homebrew = {
         enable = true;
         taps = [
             "nikitabobko/tap"
+            "FelixKratz/formulae"
         ];
         brews = [
             "mas"
             "autoenv"
+            "borders"
         ];
         casks = [
             "firefox"
