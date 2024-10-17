@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";™
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
@@ -54,6 +54,7 @@
             "nikitabobko/tap"
         ];
         brews = [
+            "mas"
             "autoenv"
         ];
         casks = [
@@ -66,7 +67,6 @@
             "itsycal"
             "monitorcontrol"
             "onyx"
-            "alfred"
             "slack"
             "stats"
             "visual-studio-code"
@@ -74,14 +74,21 @@
             "wireshark"
             "whatsapp"
             "zoom"
-            "vanilla"
+            "raycast"
         ];
+
+        # execute `mas search <app name> to get the id`
+        masApps = {
+          "hiddenbar" = 1452453066;
+          };
+
         # Makes it declaritive
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
 
-              };
+
+        };
 
       system.defaults = {
             dock = {
@@ -92,9 +99,6 @@
                 tilesize = 42;
                 "minimize-to-application" = true;
                 "mru-spaces" = false;
-                "persistent-apps" = [
-                    "/Applications/Firefox.app"
-                ];
             };
             trackpad = {
                 Clicking = true;
