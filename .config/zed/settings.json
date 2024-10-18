@@ -7,242 +7,258 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"remove_trailing_whitespace_on_save": true,
-	"theme": "Catppuccin Frappé",
-	"ui_font_size": 16,
-	"ui_font_family": "Dank Mono",
-	"ui_font_features": {
-		"calt": true
-	},
-	"buffer_font_size": 16,
-	"buffer_line_height": "comfortable",
-	"buffer_font_family": "Dank Mono",
-	"buffer_font_fallbacks": [
-		"Dank Mono"
-	],
-	"autosave": "on_focus_change",
-	"confirm_quit": false,
-	"base_keymap": "VSCode",
-	"load_direnv": "direct",
-	"current_line_highlight": "gutter",
-	"cursor_shape": "underscore",
-	"scrollbar": {
-		"show": "auto",
-		"cursors": true,
-		"git_diff": true,
-		"search_results": true,
-		"selected_symbol": true,
-		"diagnostics": true
-	},
-	"tab_bar": {
-		"show": true,
-		"show_nav_history_buttons": false
-	},
-	"tabs": {
-		"close_position": "right",
-		"file_icons": true,
-		"git_status": true,
-		"activate_on_close": "history"
-	},
-	"toolbar": {
-		"breadcrumbs": true,
-		"quick_actions": false
-	},
-	"enable_language_server": true,
-	"ensure_final_newline_on_save": true,
-	"format_on_save": "on",
-	"formatter": "language_server",
-	"use_autoclose": true,
-	"git": {
-		"git_gutter": "tracked_files",
-		"inline_blame": {
-			"enabled": true
-		}
-	},
-	"indent_guides": {
-		"enabled": true,
-		"line_width": 1,
-		"active_line_width": 1,
-		"coloring": "indent_aware",
-		"background_coloring": "disabled"
-	},
-	"hard_tabs": false,
-	"hour_format": "hour12",
-	"search": {
-		"whole_word": false,
-		"case_sensitive": false,
-		"include_ignored": false,
-		"regex": false
-	},
-	"show_inline_completions": true,
-	"show_completions_on_input": true,
-	"soft_wrap": "preferred_line_length",
-	"preferred_line_length": 88,
-	"tab_size": 4,
-	"terminal": {
-		"alternate_scroll": "off",
-		"blinking": "terminal_controlled",
-		"copy_on_select": true,
-		"dock": "bottom",
-		"detect_venv": {
-			"on": {
-				"directories": [
-					".env",
-					"env",
-					".venv",
-					"venv"
-				],
-				"activate_script": "default"
-			}
-		},
-		"env": {},
-		"font_family": "JetBrainsMono Nerd Font Mono",
-		"font_features": {},
-		"font_size": 15,
-		"line_height": "comfortable",
-		"option_as_meta": false,
-		"button": false,
-		"toolbar": {
-			"title": true
-		},
-		"working_directory": "current_project_directory"
-	},
-	"project_panel": {
-		"button": true,
-		"default_width": 240,
-		"dock": "left",
-		"file_icons": true,
-		"folder_icons": true,
-		"git_status": true,
-		"indent_size": 20,
-		"auto_reveal_entries": true,
-		"auto_fold_dirs": false,
-		"scrollbar": {
-			"show": "auto"
-		}
-	},
-	"assistant": {
-		"default_model": {
-			"provider": "zed.dev",
-			"model": "claude-3-5-sonnet-20240620"
-		},
-		"enabled": true,
-		"button": true,
-		"dock": "right",
-		"default_width": 640,
-		"default_height": 320,
-		"provider": "zed.dev",
-		"version": "2"
-	},
-	"unnecessary_code_fade": 0.9,
-	"languages": {
-		"Python": {
-			"language_servers": [
-				"ruff"
-			],
-			"format_on_save": "on",
-			"formatter": [
-				{
-					"code_actions": {
-						"source.organizeImports.ruff": true,
-						"source.fixAll.ruff": true
-					}
-				},
-				{
-					"language_server": {
-						"name": "ruff"
-					}
-				}
-			]
-		}
-	},
-	"file_types": {
-		"C++": [
-			"c"
-		],
-		"TOML": [
-			"MyLockFile"
-		],
-		"Dockerfile": [
-			"Dockerfile*"
-		],
-		"Ansible": [
-			"**.ansible.yml",
-			"**/defaults/**.yml",
-			"**/defaults/**.yaml",
-			"**/meta/**.yml",
-			"**/meta/**.yaml",
-			"**/tasks/**.yml",
-			"**/tasks/*.yml",
-			"**/tasks/*.yaml",
-			"**/handlers/*.yml",
-			"**/handlers/*.yaml",
-			"**/group_vars/**.yml",
-			"**/group_vars/**.yaml",
-			"**playbook*.yaml",
-			"**playbook*.yml"
-		],
-		"yaml": [
-			"yaml",
-			"yml"
-		]
-	},
-	"lsp": {
-		"ruff": {
-			"initialization_options": {
-				"settings": {
-					// Ruff server settings goes here
-					"fixAll": true,
-					"showSyntaxErrors": true,
-					"organizeImports": true,
-					"lineLength": 88,
-					"lint": {
-						"run": "onSave",
-						"enabled": true,
-						"select": [
-							"E4",
-							"E7",
-							"E9",
-							"F",
-							"B",
-							"Q"
-						],
-						"extendSelect": [
-							"W"
-						],
-						"ignore": [
-							"F841"
-						]
-					}
-				}
-			}
-		},
-		"yaml-language-server": {
-			"settings": {
-				"yaml": {
-					"keyOrdering": true // Enforces alphabetical ordering of keys in maps
-				}
-			}
-		},
-		"ansible-language-server": {
-			"settings": {
-				"ansible": {
-					"path": "ansible"
-				},
-				"executionEnvironment": {
-					"enabled": false
-				},
-				"python": {
-					"interpreterPath": "python3"
-				},
-				"validation": {
-					"enabled": true,
-					"lint": {
-						"enabled": true,
-						"path": "ansible-lint"
-					}
-				}
-			}
-		}
-	}
+    "remove_trailing_whitespace_on_save": true,
+    "theme": "Catppuccin Frappé",
+    "ui_font_size": 16,
+    "ui_font_family": "Dank Mono",
+    "ui_font_features": {
+        "calt": true
+    },
+    "buffer_font_size": 16,
+    "buffer_line_height": "comfortable",
+    "buffer_font_family": "Dank Mono",
+    "buffer_font_fallbacks": [
+        "Dank Mono"
+    ],
+    "autosave": "on_focus_change",
+    "confirm_quit": false,
+    "base_keymap": "VSCode",
+    // "load_direnv": "direct",
+    "current_line_highlight": "gutter",
+    "cursor_shape": "underscore",
+    "scrollbar": {
+        "show": "auto",
+        "cursors": true,
+        "git_diff": true,
+        "search_results": true,
+        "selected_symbol": true,
+        "diagnostics": true
+    },
+    "tab_bar": {
+        "show": true,
+        "show_nav_history_buttons": false
+    },
+    "tabs": {
+        "close_position": "right",
+        "file_icons": true,
+        "git_status": true,
+        "activate_on_close": "history"
+    },
+    "toolbar": {
+        "breadcrumbs": true,
+        "quick_actions": false
+    },
+    "enable_language_server": true,
+    "ensure_final_newline_on_save": true,
+    "format_on_save": "on",
+    "formatter": "language_server",
+    "use_autoclose": true,
+    "git": {
+        "git_gutter": "tracked_files",
+        "inline_blame": {
+            "enabled": true
+        }
+    },
+    "indent_guides": {
+        "enabled": true,
+        "line_width": 1,
+        "active_line_width": 1,
+        "coloring": "indent_aware",
+        "background_coloring": "disabled"
+    },
+    "hard_tabs": false,
+    "hour_format": "hour12",
+    "search": {
+        "whole_word": false,
+        "case_sensitive": false,
+        "include_ignored": false,
+        "regex": false
+    },
+    "show_inline_completions": true,
+    "show_completions_on_input": true,
+    "soft_wrap": "preferred_line_length",
+    "show_wrap_guides": false,
+    "preferred_line_length": 120,
+    "tab_size": 4,
+    "terminal": {
+        "shell": {
+            "program": "zsh"
+        },
+        "alternate_scroll": "off",
+        "blinking": "terminal_controlled",
+        "copy_on_select": true,
+        "dock": "bottom",
+        "detect_venv": {
+            "on": {
+                "directories": [
+                    ".env",
+                    "env",
+                    ".venv",
+                    "venv"
+                ],
+                "activate_script": "default"
+            }
+        },
+        "env": {},
+        "font_family": "JetBrainsMono Nerd Font Mono",
+        "font_features": {},
+        "font_size": 15,
+        "line_height": "comfortable",
+        "option_as_meta": false,
+        "button": false,
+        "toolbar": {
+            "title": true
+        },
+        "working_directory": "current_project_directory"
+    },
+    "project_panel": {
+        "button": true,
+        "default_width": 240,
+        "dock": "left",
+        "file_icons": true,
+        "folder_icons": true,
+        "git_status": true,
+        "indent_size": 20,
+        "auto_reveal_entries": true,
+        "auto_fold_dirs": false,
+        "scrollbar": {
+            "show": "auto"
+        }
+    },
+    "assistant": {
+        "default_model": {
+            "provider": "zed.dev",
+            "model": "claude-3-5-sonnet-20240620"
+        },
+        "enabled": true,
+        "button": true,
+        "dock": "right",
+        "default_width": 640,
+        "default_height": 320,
+        "provider": "zed.dev",
+        "version": "2"
+    },
+    "unnecessary_code_fade": 0.9,
+    "languages": {
+        "Python": {
+            "language_servers": [
+                "ruff"
+            ],
+            "format_on_save": "on",
+            "formatter": [
+                {
+                    "code_actions": {
+                        "source.organizeImports.ruff": true,
+                        "source.fixAll.ruff": true
+                    }
+                },
+                {
+                    "language_server": {
+                        "name": "ruff"
+                    }
+                }
+            ]
+        }
+    },
+    "extend_comment_on_newline": true,
+    "telemetry": {
+        // Send debug info like crash reports.
+        "diagnostics": false,
+        // Send anonymized usage data like what languages you're using Zed with.
+        "metrics": false
+    },
+    "file_types": {
+        "C++": [
+            "c"
+        ],
+        "TOML": [
+            "MyLockFile"
+        ],
+        "Dockerfile": [
+            "Dockerfile*"
+        ],
+        "Ansible": [
+            "**.ansible.yml",
+            "**/defaults/**.yml",
+            "**/defaults/**.yaml",
+            "**/meta/**.yml",
+            "**/meta/**.yaml",
+            "**/tasks/**.yml",
+            "**/tasks/*.yml",
+            "**/tasks/*.yaml",
+            "**/handlers/*.yml",
+            "**/handlers/*.yaml",
+            "**/group_vars/**.yml",
+            "**/group_vars/**.yaml",
+            "**playbook*.yaml",
+            "**playbook*.yml"
+        ],
+        "yaml": [
+            "yaml",
+            "yml"
+        ]
+    },
+    "features": {
+        // Which inline completion provider to use.
+        "inline_completion_provider": "copilot"
+    },
+    "lsp": {
+        "ruff": {
+            "initialization_options": {
+                "settings": {
+                    // Ruff server settings goes here
+                    "fixAll": true,
+                    "showSyntaxErrors": true,
+                    "organizeImports": true,
+                    "lineLength": 88,
+                    "lint": {
+                        "run": "onSave",
+                        "enabled": true,
+                        "select": [
+                            "E4",
+                            "E7",
+                            "E9",
+                            "F",
+                            "B",
+                            "Q",
+                            "ANN", // Type annotation rules
+                            "PYI", // .pyi file-related rules
+                            "TCH" // Type-checking related rules
+                        ],
+                        "extendSelect": [
+                            "W"
+                        ],
+                        "ignore": []
+                    }
+                }
+            }
+        },
+        "yaml-language-server": {
+            "settings": {
+                "yaml": {
+                    "keyOrdering": false // Enforces alphabetical ordering of keys in maps
+                }
+            }
+        },
+        "ansible-language-server": {
+            "settings": {
+                "ansible": {
+                    "path": "ansible"
+                },
+                "executionEnvironment": {
+                    "enabled": false
+                },
+                "python": {
+                    "interpreterPath": "python3"
+                },
+                "validation": {
+                    "enabled": true,
+                    "lint": {
+                        "enabled": true,
+                        "path": "ansible-lint"
+                    }
+                }
+            }
+        }
+    }
 }

@@ -82,7 +82,7 @@
         ];
         brews = [
             "mas"
-            "autoenv"
+            # "autoenv"
             "borders"
         ];
         casks = [

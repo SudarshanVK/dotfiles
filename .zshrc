@@ -41,7 +41,7 @@ function tabcolor {
 tabcolor
 
 function nix-update() {
-    (cd /dotfiles/nix && nix flake update)
+    (cd ~/dotfiles/nix && nix flake update)
 }
 
 function nix-install() {
@@ -69,7 +69,7 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::dotenv
-zinit snippet OMZP::autoenv
+# zinit snippet OMZP::autoenv
 
 # Load completions for zsh-completions
 autoload -Uz compinit && compinit
