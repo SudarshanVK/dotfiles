@@ -16,12 +16,27 @@
       nixpkgs.config.allowUnfree = true;
       environment.systemPackages =
         [
+            # VSCODE Extentions
+            pkgs.vscode-extensions.batisteo.vscode-django
+            pkgs.vscode-extensions.catppuccin.catppuccin-vsc
+            pkgs.vscode-extensions.catppuccin.catppuccin-vsc-icons
+            pkgs.vscode-extensions.charliermarsh.ruff
+            pkgs.vscode-extensions.ms-python.python
+            pkgs.vscode-extensions.github.copilot
+            pkgs.vscode-extensions.github.copilot-chat
+            pkgs.vscode-extensions.redhat.vscode-yaml
+            pkgs.vscode-extensions.pkief.material-icon-theme
+            pkgs.vscode-extensions.wholroyd.jinja
+            pkgs.vscode-extensions.visualstudioexptteam.vscodeintellicode
+            pkgs.vscode-extensions.visualstudioexptteam.intellicode-api-usage-examples
+            # FONTS
             pkgs.fira-code-nerdfont
             pkgs.nerdfonts
             pkgs.meslo-lgs-nf
             pkgs.source-code-pro
             pkgs.anonymousPro
             pkgs.hack-font
+            # PACKAGES
             pkgs.neovim
             pkgs.asciinema-agg
             pkgs.asciinema
@@ -106,7 +121,7 @@
       system.defaults = {
             dock = {
                 autohide = false;
-                orientation = "right";
+                orientation = "left";
                 show-recents = false;
                 mineffect = "scale";
                 tilesize = 42;
