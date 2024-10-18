@@ -1,45 +1,32 @@
 # Introduction
 
-This repository contains a list of all dot files.
+This repository contains all the dotfiles that I use on my macbook. The dotfiles are managed using [GNU Stow](https://www.gnu.org/software/stow/).
 
 # Setting up a new Laptop
 
-1. Install [Homebrew](https://brew.sh/)
-``` bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-> [!NOTE]
-> Remember to execute the command at the end of the installation to add brew to your path
+1. Install Nix
+    ```sh
+    sh <(curl -L https://nixos.org/nix/install)
+    ```
+2. Clone this repository
+    ```sh
+    git clone https://github.com/SudarshanVK/dotfiles.git ~/.dotfiles
+    ```
 
-2. Install Git
-``` brew
-brew install git
-```
-3. Copy the .ssh folder from the old laptop to the new laptop
+3. Execute darwin rebuild to setup the system. This can take a while as it is installing all packages and setting up the system.
+    ```sh
+    darwin-rebuild switch --flake ~/dotfiles/nix#macos
+    ```
 
-4. Clone this repository to your home directory
-```bash
-git clone git@github.com:SudarshanVK/dotfiles.git ~/dotfiles
-```
+4. STOW the dotfiles
+    ```sh
+    cd ~/.dotfiles
+    stow .
+    ```
 
-5. Install all brew packages
-```bash
-xargs brew install < brew.txt
-```
+5. Open iterm2 and let it install the shell integration.
 
-6. Install all brew cask packages
-``` bash
-xargs brew cask install < brew_cask.txt
-```
-
-7. Navigate to the dotfiles directory and execute stow
-``` bash
-cd ~/dotfiles
-stow .
-
-# if there are failures try
-stow --adopt .
-```
+This should setup the system with all the dotfiles and packages that I use.
 
 # Author
 
