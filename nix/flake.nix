@@ -37,6 +37,8 @@
             pkgs.anonymousPro
             pkgs.hack-font
             # PACKAGES
+            pkgs.nixd
+            pkgs.ollama
             pkgs.neovim
             pkgs.asciinema-agg
             pkgs.asciinema
@@ -67,10 +69,10 @@
             pkgs.wget
             pkgs.zoxide
             pkgs.zsh
+            pkgs.gh
         ];
 
       fonts.packages = with pkgs; [
-
         (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
       ];
 
@@ -82,8 +84,10 @@
         ];
         brews = [
             "mas"
+            # "sketchybar"
             # "autoenv"
             "borders"
+            # "switchaudio-osx"
         ];
         casks = [
             "firefox"
@@ -103,6 +107,8 @@
             "whatsapp"
             "zoom"
             "raycast"
+            "orion"
+            "sf-symbols"
         ];
 
         # execute `mas search <app name> to get the id`

@@ -91,15 +91,11 @@
         "detect_venv": {
             "on": {
                 "directories": [
-                    ".env",
-                    "env",
-                    ".venv",
-                    "venv"
+                    ".venv"
                 ],
                 "activate_script": "default"
             }
         },
-        "env": {},
         "font_family": "JetBrainsMono Nerd Font Mono",
         "font_features": {},
         "font_size": 15,
@@ -138,8 +134,14 @@
         "provider": "zed.dev",
         "version": "2"
     },
-    "unnecessary_code_fade": 0.9,
+    "unnecessary_code_fade": 0.5,
     "languages": {
+        "nix": {
+            "command": "nixd",
+            "filetypes": [
+                "nix"
+            ]
+        },
         "Python": {
             "language_servers": [
                 "ruff"

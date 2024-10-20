@@ -2,12 +2,13 @@ after-startup-command = [
     # JankyBorders has a built-in detection of already running process,
     # so it won't be run twice on AeroSpace restart
     'exec-and-forget active_color=0xff90ee90 inactive_color=0xffffffe0 width=10.0',
+    # 'exec-and-forget sketchybar'
 ]
 
 # Notify Sketchybar about workspace change
-#exec-on-workspace-change = ['/bin/bash', '-c',
+# exec-on-workspace-change = ['/bin/bash', '-c',
 #    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-#]
+# ]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -155,6 +156,9 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
+
+# execute the following command to find the app identity `codesign -dvvvv --requirements - /Applications/Firefox.app`
+
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
 run = "move-node-to-workspace 1"
@@ -163,10 +167,14 @@ run = "move-node-to-workspace 1"
 if.app-id = 'dev.zed.Zed'
 run = "move-node-to-workspace 1"
 
-#Curosr
 [[on-window-detected]]
-if.app-id = 'com.todesktop.230313mzl4w4u92'
-run = "move-node-to-workspace 1"
+if.app-id = 'org.mozilla.firefox'
+run = "move-node-to-workspace 2"
+
+# Orion browser
+[[on-window-detected]]
+if.app-id = 'com.kagi.kagimacOS'
+run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.edgemac'
@@ -195,3 +203,7 @@ run = "move-node-to-workspace 5"
 [[on-window-detected]]
 if.app-id = 'us.zoom.xos'
 run = "move-node-to-workspace 5"
+
+[[on-window-detected]]
+if.app-id = 'com.googlecode.iterm2'
+run = "move-node-to-workspace 7"
