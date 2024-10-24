@@ -87,6 +87,8 @@
             # "autoenv"
             "borders"
             # "switchaudio-osx"
+            "tmux"
+            "bash"
         ];
         casks = [
             "firefox"
@@ -106,8 +108,8 @@
             "whatsapp"
             "zoom"
             "raycast"
-            "orion"
             "sf-symbols"
+            "wezterm"
         ];
 
         # execute `mas search <app name> to get the id`

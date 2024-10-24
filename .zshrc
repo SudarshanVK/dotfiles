@@ -48,6 +48,38 @@ function nix-install() {
     darwin-rebuild switch --flake ~/dotfiles/nix#macos
 }
 
+# Function to create a new tmux session with a passed name
+tmux_new() {
+  if [ -z "$1" ]; then
+    echo "Please provide a session name."
+    return 1
+  fi
+  tmux new-session -s "$1"
+}
+
+# Function to list all tmux sessions
+tmux_list() {
+  tmux list-sessions
+}
+
+# Function to attach to a tmux session by name
+tmux_attach() {
+  if [ -z "$1" ]; then
+    echo "Please provide a session name to attach."
+    return 1
+  fi
+  tmux attach-session -t "$1"
+}
+
+# Function to kill a tmux session by name
+tmux_kill() {
+  if [ -z "$1" ]; then
+    echo "Please provide a session name to kill."
+    return 1
+  fi
+  tmux kill-session -t "$1"
+}
+
 # Pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
@@ -123,6 +155,11 @@ alias zz='zed'
 alias dc='docker compose'
 alias ap='ansible-playbook'
 alias ag='ansible-galaxy'
+# Tmux aliases
+alias tnew='tmux_new'; ; alias tn='tmux_new'
+alias tlist='tmux_list'; alias tl='tmux_list'
+alias tattach='tmux_attach'; alias ta='tmux_attach'
+alias tkill='tmux_kill'; alias tk='tmux_kill'
 
 source <(kubectl completion zsh)
 alias k=kubectl
@@ -165,3 +202,9 @@ eval "$(zoxide init zsh)"
 
 #starship
 eval "$(starship init zsh)"
+
+
+# # Start tmux by default
+# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#   tmux attach-session -t default || tmux new-session -s default
+# fi
