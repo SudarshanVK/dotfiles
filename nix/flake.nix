@@ -8,7 +8,7 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
+  outputs = { self, nix-darwin, nix-homebrew, ... }:
   let
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
@@ -84,7 +84,6 @@
         ];
         brews = [
             "mas"
-            # "sketchybar"
             # "autoenv"
             "borders"
             # "switchaudio-osx"
@@ -120,8 +119,6 @@
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
-
-
         };
 
       system.defaults = {

@@ -7,6 +7,24 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "ssh_connections": [
+    {
+      "host": "svkubuntu",
+      "username": "svk",
+      "projects": [
+        {
+          "paths": [
+            "~/testenv"
+          ]
+        },
+        {
+          "paths": [
+            "~/all_labs"
+          ]
+        }
+      ]
+    }
+  ],
     "remove_trailing_whitespace_on_save": true,
     "theme": "Catppuccin Frappé",
     "ui_font_size": 16,
