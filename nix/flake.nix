@@ -94,7 +94,6 @@
             "bitwarden-cli"
         ];
         casks = [
-            # "alacritty"
             "firefox"
             "aerospace"
             "appcleaner"
@@ -113,8 +112,6 @@
             "zoom"
             "raycast"
             "sf-symbols"
-            "kitty"
-            # "wezterm"
         ];
 
         # execute `mas search <app name> to get the id`
