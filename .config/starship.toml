@@ -49,13 +49,13 @@ disable = true
 symbol = ' '
 
 [directory]
-style = 'blue'
+style = '#d7aa46'
 read_only = ' 󰌾'
 truncation_length = 4
 truncate_to_repo = false
 
 [character]
-success_symbol = '[ᐅ](bold cyan)'
+success_symbol = '[ᐅ](#ffff00)'
 error_symbol = '[ᐅ](bold red)'
 vicmd_symbol = '[ᐅ](bold green)'
 

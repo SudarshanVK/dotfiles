@@ -70,6 +70,8 @@
             pkgs.zoxide
             pkgs.zsh
             pkgs.gh
+            pkgs.pass
+            pkgs.gnupg
         ];
 
       fonts.packages = with pkgs; [
@@ -89,8 +91,10 @@
             # "switchaudio-osx"
             "tmux"
             "bash"
+            "bitwarden-cli"
         ];
         casks = [
+            # "alacritty"
             "firefox"
             "aerospace"
             "appcleaner"
@@ -109,7 +113,8 @@
             "zoom"
             "raycast"
             "sf-symbols"
-            "wezterm"
+            "kitty"
+            # "wezterm"
         ];
 
         # execute `mas search <app name> to get the id`
