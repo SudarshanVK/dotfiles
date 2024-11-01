@@ -69,9 +69,7 @@
             pkgs.wget
             pkgs.zoxide
             pkgs.zsh
-            pkgs.gh
-            pkgs.pass
-            pkgs.gnupg
+            pkgs.drawio
         ];
 
       fonts.packages = with pkgs; [
@@ -92,6 +90,7 @@
             "tmux"
             "bash"
             "bitwarden-cli"
+            "cdktf"
         ];
         casks = [
             "firefox"
@@ -112,6 +111,7 @@
             "zoom"
             "raycast"
             "sf-symbols"
+            "zen-browser"
         ];
 
         # execute `mas search <app name> to get the id`
