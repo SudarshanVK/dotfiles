@@ -160,6 +160,7 @@ alias tnew='tmux_new'; ; alias tn='tmux_new'
 alias tlist='tmux_list'; alias tl='tmux_list'
 alias tattach='tmux_attach'; alias ta='tmux_attach'
 alias tkill='tmux_kill'; alias tk='tmux_kill'
+alias lgit='lazygit'
 
 source <(kubectl completion zsh)
 alias k=kubectl
