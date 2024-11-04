@@ -114,6 +114,8 @@
             "raycast"
             "sf-symbols"
             "zen-browser"
+            "1password"
+            "1password-cli"
         ];
 
         # execute `mas search <app name> to get the id`
