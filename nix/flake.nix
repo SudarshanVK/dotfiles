@@ -70,6 +70,7 @@
             pkgs.zoxide
             pkgs.zsh
             pkgs.drawio
+            pkgs.lazygit
         ];
 
       fonts.packages = with pkgs; [
@@ -91,6 +92,7 @@
             "bash"
             "bitwarden-cli"
             "cdktf"
+            #"zellij"
         ];
         casks = [
             "firefox"

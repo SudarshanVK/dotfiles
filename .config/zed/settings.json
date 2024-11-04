@@ -8,23 +8,23 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
     "ssh_connections": [
-    {
-      "host": "svkubuntu",
-      "username": "svk",
-      "projects": [
         {
-          "paths": [
-            "~/testenv"
-          ]
-        },
-        {
-          "paths": [
-            "~/all_labs"
-          ]
+            "host": "svkubuntu",
+            "username": "svk",
+            "projects": [
+                {
+                    "paths": [
+                        "~/testenv"
+                    ]
+                },
+                {
+                    "paths": [
+                        "~/all_labs"
+                    ]
+                }
+            ]
         }
-      ]
-    }
-  ],
+    ],
     "remove_trailing_whitespace_on_save": true,
     "theme": "Catppuccin Frappé",
     "ui_font_size": 16,
@@ -43,7 +43,7 @@
     "base_keymap": "VSCode",
     // "load_direnv": "direct",
     "current_line_highlight": "gutter",
-    "cursor_shape": "underscore",
+    "cursor_shape": "underline",
     "scrollbar": {
         "show": "auto",
         "cursors": true,
