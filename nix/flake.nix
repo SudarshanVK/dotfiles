@@ -116,6 +116,7 @@
             "zen-browser"
             "1password"
             "1password-cli"
+            "kitty"
         ];
 
         # execute `mas search <app name> to get the id`

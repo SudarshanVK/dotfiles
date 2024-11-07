@@ -8,23 +8,33 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
     "ssh_connections": [
+    {
+      "host": "svkubuntu",
+      "username": "svk",
+      "projects": [
         {
-            "host": "svkubuntu",
-            "username": "svk",
-            "projects": [
-                {
-                    "paths": [
-                        "~/testenv"
-                    ]
-                },
-                {
-                    "paths": [
-                        "~/all_labs"
-                    ]
-                }
-            ]
+          "paths": [
+            "~/testenv"
+          ]
+        },
+        {
+          "paths": [
+            "~/all_labs"
+          ]
         }
-    ],
+      ]
+    },
+    {
+      "host": "vagrantlab.lab.unimelb.net.au",
+      "projects": [
+        {
+          "paths": [
+            "~/lab"
+          ]
+        }
+      ]
+    }
+  ],
     "remove_trailing_whitespace_on_save": true,
     "theme": "Catppuccin Frappé",
     "ui_font_size": 16,

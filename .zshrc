@@ -203,11 +203,3 @@ eval "$(zoxide init zsh)"
 
 #starship
 eval "$(starship init zsh)"
-
-
-# Start tmux by default
-# Auto-start tmux with session named "macos"
-# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#   tmux new-session -A -s macos
-# fi
-
