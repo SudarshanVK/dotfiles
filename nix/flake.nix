@@ -59,6 +59,7 @@
             pkgs.stow
             pkgs.poetry
             pkgs.pyenv
+            pkgs.uv
             pkgs.ruff
             pkgs.speedtest-cli
             pkgs.sshpass

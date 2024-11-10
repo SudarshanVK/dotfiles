@@ -15,8 +15,8 @@ font_family MonoLisa Nerd Font Mono
 bold_font MonoLisa Nerd Font Mono
 italic_font MonoLisa Nerd Font Mono
 bold_italic_font auto
-font_size 14.5
-adjust_line_height 120%
+font_size 15.0
+adjust_line_height 110%
 adjust_column_width 0
 disable_ligatures never
 
@@ -26,7 +26,7 @@ window_margin_width 5
 single_window_margin_width 0
 window_padding_width 5
 hide_window_decorations titlebar-only
-enabled_layouts Tall, Splits, *
+enabled_layouts Tall, *
 # active_border_color #d79921
 # inactive_border_color #3c3836
 
@@ -44,17 +44,13 @@ tab_bar_edge bottom
 tab_bar_align center
 
 # Paste from clipboard
-# paste_actions replace-newline
+paste_actions no-op
 select_by_word_characters @-./_~?&=%+#
 click_interval -1.0
 copy_on_select clipboard
 shell /run/current-system/sw/bin/zsh
+strip_trailing_spaces smart
 pointer_shape_when_dragging arrow
-
-# Macos Specific
-macos_hide_from_tasks no
-macos_quit_when_last_window_closed no
-macos_window_resizable yes
 
 # Gruvbox Dark tab colors
 # active_tab_foreground   #ebdbb2
@@ -131,6 +127,6 @@ repaint_delay 10
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Macchiato
+# Gruvbox Material Dark Soft
 include current-theme.conf
 # END_KITTY_THEME
