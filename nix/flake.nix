@@ -57,8 +57,6 @@
             pkgs.jq
             pkgs.libffi
             pkgs.stow
-            pkgs.poetry
-            pkgs.pyenv
             pkgs.uv
             pkgs.ruff
             pkgs.speedtest-cli
