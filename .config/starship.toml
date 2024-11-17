@@ -32,7 +32,7 @@ truncation_length = 4
 truncate_to_repo = false
 
 [character]
-success_symbol = '[❯](#81c8be)'
+success_symbol = '[❯](#e5c890)'
 error_symbol = '[❯](bold red)'
 vicmd_symbol = '[❯](bold green)'
 

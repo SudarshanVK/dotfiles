@@ -84,14 +84,10 @@
         ];
         brews = [
             "mas"
-            # "autoenv"
             "borders"
-            # "switchaudio-osx"
             "tmux"
             "bash"
-            "bitwarden-cli"
             "cdktf"
-            #"zellij"
         ];
         casks = [
             "firefox"
@@ -115,7 +111,6 @@
             "zen-browser"
             "1password"
             "1password-cli"
-            "kitty"
         ];
 
         # execute `mas search <app name> to get the id`

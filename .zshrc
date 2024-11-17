@@ -90,7 +90,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-zinit light MichaelAquilina/zsh-autoswitch-virtualenv
+# zinit light MichaelAquilina/zsh-autoswitch-virtualenv
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -203,3 +203,4 @@ eval "$(zoxide init zsh)"
 
 #starship
 eval "$(starship init zsh)"
+
