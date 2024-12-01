@@ -17,7 +17,7 @@ $character"""
 command_timeout = 2000
 
 # Inserts a blank line between shell prompts
-# add_newline = true
+add_newline = true
 
 [package]
 disable = true
@@ -32,7 +32,7 @@ truncation_length = 4
 truncate_to_repo = false
 
 [character]
-success_symbol = '[❯](#e5c890)'
+success_symbol = '[❯](bold yellow)'
 error_symbol = '[❯](bold red)'
 vicmd_symbol = '[❯](bold green)'
 

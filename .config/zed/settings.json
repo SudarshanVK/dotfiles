@@ -8,36 +8,36 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
     "ssh_connections": [
-    {
-      "host": "svkubuntu",
-      "username": "svk",
-      "projects": [
         {
-          "paths": [
-            "~/testenv"
-          ]
+            "host": "svkubuntu",
+            "username": "svk",
+            "projects": [
+                {
+                    "paths": [
+                        "~/testenv"
+                    ]
+                },
+                {
+                    "paths": [
+                        "~/all_labs"
+                    ]
+                }
+            ]
         },
         {
-          "paths": [
-            "~/all_labs"
-          ]
+            "host": "vagrantlab.lab.unimelb.net.au",
+            "projects": [
+                {
+                    "paths": [
+                        "~/lab"
+                    ]
+                }
+            ]
         }
-      ]
-    },
-    {
-      "host": "vagrantlab.lab.unimelb.net.au",
-      "projects": [
-        {
-          "paths": [
-            "~/lab"
-          ]
-        }
-      ]
-    }
-  ],
+    ],
     "remove_trailing_whitespace_on_save": true,
-    "theme": "Catppuccin Frappé",
-    "ui_font_size": 16,
+    "theme": "Gruvbox Dark",
+    "ui_font_size": 17,
     "ui_font_family": "Dank Mono",
     "ui_font_features": {
         "calt": true
@@ -53,7 +53,7 @@
     "base_keymap": "VSCode",
     // "load_direnv": "direct",
     "current_line_highlight": "gutter",
-    "cursor_shape": "underline",
+    "cursor_shape": "bar",
     "scrollbar": {
         "show": "auto",
         "cursors": true,
@@ -233,6 +233,14 @@
         "inline_completion_provider": "copilot"
     },
     "lsp": {
+        "terraform-ls": {
+            "initialization_options": {
+                "experimentalFeatures": {
+                    "validateOnSave": true,
+                    "prefillRequiredFields": true
+                }
+            }
+        },
         "ruff": {
             "initialization_options": {
                 "settings": {

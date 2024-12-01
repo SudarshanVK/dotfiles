@@ -124,12 +124,12 @@ alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 
 [workspace-to-monitor-force-assignment]
-1 = '^(Mi|HP).*$'                   # Sequence number of the monitor from left to right. 1-based indexing
-2 = '^(Mi|HP).*$'              # Main monitor
-3 = '^(Mi|HP).*$'                  # Non-main monitor in case when there are only two monitors
-4 = '^(Mi|HP).*$'                   # Case insensitive regex substring
-5 = '^(Mi|HP).*$'
-6 = '^(Mi|HP).*$'
+1 = '^(Mi|HP|DELL).*$'                   # Sequence number of the monitor from left to right. 1-based indexing
+2 = '^(Mi|HP|DELL).*$'       # Main monitor
+3 = '^(Mi|HP|DELL).*$'                 # Non-main monitor in case when there are only two monitors
+4 = '^(Mi|HP|DELL).*$'                   # Case insensitive regex substring
+5 = '^(Mi|HP|DELL).*$'
+6 = '^(Mi|HP|DELL).*$'
 7 = '^Built-in Retina Display'             # Case insensitive regex match
 8 = '^Built-in Retina Display'
 

@@ -30,8 +30,8 @@
             pkgs.vscode-extensions.visualstudioexptteam.vscodeintellicode
             pkgs.vscode-extensions.visualstudioexptteam.intellicode-api-usage-examples
             # FONTS
-            pkgs.fira-code-nerdfont
-            pkgs.nerdfonts
+            # pkgs.fira-code-nerdfont
+           # pkgs.nerdfonts
             pkgs.meslo-lgs-nf
             pkgs.source-code-pro
             pkgs.anonymousPro
@@ -58,6 +58,8 @@
             pkgs.libffi
             pkgs.stow
             pkgs.uv
+            pkgs.poetry
+            pkgs.nodePackages.cdktf-cli
             pkgs.ruff
             pkgs.speedtest-cli
             pkgs.sshpass
@@ -70,11 +72,12 @@
             pkgs.zsh
             pkgs.drawio
             pkgs.lazygit
+            pkgs.inetutils
         ];
 
-      fonts.packages = with pkgs; [
-        (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
-      ];
+      # fonts.packages = with pkgs; [
+      #   (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+      # ];
 
       homebrew = {
         enable = true;
@@ -88,6 +91,7 @@
             "tmux"
             "bash"
             "cdktf"
+            "fastfetch"
         ];
         casks = [
             "firefox"
@@ -111,6 +115,9 @@
             "zen-browser"
             "1password"
             "1password-cli"
+            "only-switch"
+            "rocket"
+            "chatgpt"
         ];
 
         # execute `mas search <app name> to get the id`

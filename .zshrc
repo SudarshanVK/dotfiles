@@ -152,6 +152,7 @@ alias play='asciinema play'
 alias upload='asciinema upload'
 alias cd='z'
 alias zz='zed'
+alias e="/Applications/Windsurf.app/Contents/MacOS/Electron"
 alias dc='docker compose'
 alias ap='ansible-playbook'
 alias ag='ansible-galaxy'
