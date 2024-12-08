@@ -14,12 +14,12 @@
             "projects": [
                 {
                     "paths": [
-                        "~/testenv"
+                        "~/all_labs"
                     ]
                 },
                 {
                     "paths": [
-                        "~/all_labs"
+                        "~/testenv"
                     ]
                 }
             ]
@@ -33,10 +33,21 @@
                     ]
                 }
             ]
+        },
+        {
+            "host": "vagrant4",
+            "username": "ubuntu",
+            "projects": [
+                {
+                    "paths": [
+                        "~/NetLab"
+                    ]
+                }
+            ]
         }
     ],
     "remove_trailing_whitespace_on_save": true,
-    "theme": "Gruvbox Dark",
+    "theme": "Catppuccin Frappé",
     "ui_font_size": 17,
     "ui_font_family": "Dank Mono",
     "ui_font_features": {
@@ -164,6 +175,9 @@
     },
     "unnecessary_code_fade": 0.5,
     "languages": {
+        "YAML": {
+            "tab_size": 2
+        },
         "nix": {
             "command": "nixd",
             "filetypes": [

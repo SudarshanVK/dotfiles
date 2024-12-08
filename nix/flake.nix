@@ -94,6 +94,8 @@
             "fastfetch"
         ];
         casks = [
+            "hazeover"
+            "karabiner-elements"
             "firefox"
             "aerospace"
             "appcleaner"
