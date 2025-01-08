@@ -17,18 +17,18 @@
       environment.systemPackages =
         [
             # VSCODE Extentions
-            pkgs.vscode-extensions.batisteo.vscode-django
-            pkgs.vscode-extensions.catppuccin.catppuccin-vsc
-            pkgs.vscode-extensions.catppuccin.catppuccin-vsc-icons
-            pkgs.vscode-extensions.charliermarsh.ruff
-            pkgs.vscode-extensions.ms-python.python
-            pkgs.vscode-extensions.github.copilot
-            pkgs.vscode-extensions.github.copilot-chat
-            pkgs.vscode-extensions.redhat.vscode-yaml
-            pkgs.vscode-extensions.pkief.material-icon-theme
-            pkgs.vscode-extensions.wholroyd.jinja
-            pkgs.vscode-extensions.visualstudioexptteam.vscodeintellicode
-            pkgs.vscode-extensions.visualstudioexptteam.intellicode-api-usage-examples
+            # pkgs.vscode-extensions.batisteo.vscode-django
+            # pkgs.vscode-extensions.catppuccin.catppuccin-vsc
+            # pkgs.vscode-extensions.catppuccin.catppuccin-vsc-icons
+            # pkgs.vscode-extensions.charliermarsh.ruff
+            # pkgs.vscode-extensions.ms-python.python
+            # pkgs.vscode-extensions.github.copilot
+            # pkgs.vscode-extensions.github.copilot-chat
+            # pkgs.vscode-extensions.redhat.vscode-yaml
+            # pkgs.vscode-extensions.pkief.material-icon-theme
+            # pkgs.vscode-extensions.wholroyd.jinja
+            # pkgs.vscode-extensions.visualstudioexptteam.vscodeintellicode
+            # pkgs.vscode-extensions.visualstudioexptteam.intellicode-api-usage-examples
             # FONTS
             # pkgs.fira-code-nerdfont
            # pkgs.nerdfonts
@@ -59,7 +59,6 @@
             pkgs.stow
             pkgs.uv
             pkgs.poetry
-            pkgs.nodePackages.cdktf-cli
             pkgs.ruff
             pkgs.speedtest-cli
             pkgs.sshpass
@@ -73,6 +72,7 @@
             pkgs.drawio
             pkgs.lazygit
             pkgs.inetutils
+            pkgs.open-policy-agent
         ];
 
       # fonts.packages = with pkgs; [
@@ -84,6 +84,7 @@
         taps = [
             "nikitabobko/tap"
             "FelixKratz/formulae"
+            "zkondor/dist"
         ];
         brews = [
             "mas"
@@ -94,6 +95,7 @@
             "fastfetch"
         ];
         casks = [
+            "font-monaspace"
             "hazeover"
             "karabiner-elements"
             "firefox"
@@ -114,17 +116,18 @@
             "zoom"
             "raycast"
             "sf-symbols"
-            "zen-browser"
             "1password"
             "1password-cli"
             "only-switch"
             "rocket"
             "chatgpt"
+            "ghostty"
         ];
 
         # execute `mas search <app name> to get the id`
         masApps = {
           "hiddenbar" = 1452453066;
+          # "Xnip" = 1221250572;
           };
 
         # Makes it declaritive

@@ -198,10 +198,10 @@ _fzf_comprun() {
 
 #! to remove the ESC characters when doing | less for anything
 export LESS=eFRX
+# export TERM=xterm-256color
 
 # Zoxide
 eval "$(zoxide init zsh)"
 
 #starship
 eval "$(starship init zsh)"
-

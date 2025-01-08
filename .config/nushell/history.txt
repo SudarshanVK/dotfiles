@@ -1,7 +1,0 @@
-lt
-tree
-clear
-ll
-ls
-clear
-exit

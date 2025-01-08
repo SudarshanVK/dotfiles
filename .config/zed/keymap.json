@@ -1,0 +1,29 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+    {
+        "context": "Workspace",
+        "bindings": {
+            // "cmd-r": "assistant::ToggleFocus",
+            "cmd-b": "workspace::ToggleLeftDock",
+            "cmd-r": "workspace::ToggleRightDock"
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "cmd-i": "assistant::InlineAssist",
+            "cmd-up": "editor::MovePageUp",
+            "cmd-down": "editor::MovePageDown",
+            "cmd-0": "pane::SplitRight",
+            "cmd-9": "pane::SplitLeft",
+            "cmd-[": "pane::ActivatePrevItem",
+            "cmd-]": "pane::ActivateNextItem"
+        }
+    }
+]

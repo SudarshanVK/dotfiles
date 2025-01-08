@@ -1,15 +1,6 @@
 {
-	"latest_signin": "my",
-	"device": "emlx4ps6jnl54xxrify4mhvrbi",
-	"accounts": [
-		{
-			"shorthand": "my",
-			"accountUUID": "UZ5YLD4S3JF6DBUELSM4Z7JB7I",
-			"url": "https://my.1password.com",
-			"email": "sudarshan.net09@gmail.com",
-			"accountKey": "A3-75GRKS-J5DBFC-GBWGR-A574F-5CT8F-3SKXN",
-			"userUUID": "PRWHNXFQ4RFKLK6UDGEGCRCUOQ",
-			"dsecret": "m0NhzPoXw-In8np0LqTlFQ"
-		}
-	]
+	"latest_signin": "",
+	"device": "qtu2yryg472mag4nw5j5k3dsbm",
+	"accounts": null,
+	"system_auth_latest_signin": "PRWHNXFQ4RFKLK6UDGEGCRCUOQ"
 }

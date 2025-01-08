@@ -259,10 +259,10 @@
             "initialization_options": {
                 "settings": {
                     // Ruff server settings goes here
-                    "fixAll": true,
+                    "fixAll": false,
                     "showSyntaxErrors": true,
                     "organizeImports": true,
-                    "lineLength": 88,
+                    "lineLength": 100,
                     "lint": {
                         "run": "onSave",
                         "enabled": true,
