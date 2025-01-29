@@ -7,7 +7,7 @@ adjust-cell-height = 10
 font-size = 15
 
 # Additional recommended settings
-font-family = SauceCodePro Nerd Font Mono
+font-family = Inconsolata Nerd Font Mono Regular
 font-synthetic-style = bold-italic
 font-feature = liga 1
 cursor-style = bar
@@ -16,14 +16,15 @@ background-opacity = 0.95
 window-padding-x = 10
 window-padding-y = 10
 confirm-close-surface = true
-scrollback-limit = 100
+scrollback-limit = 100000000
 window-padding-x = 10
 window-padding-y = 10
 clipboard-paste-protection = true
 copy-on-select = true
 quit-after-last-window-closed = true
-theme = catppuccin-frappe
+theme = GruvboxDark
 shell-integration = zsh
+working-directory = home
 
 
 keybind = global:cmd+;=toggle_quick_terminal

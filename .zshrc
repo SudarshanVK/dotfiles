@@ -163,8 +163,8 @@ alias tattach='tmux_attach'; alias ta='tmux_attach'
 alias tkill='tmux_kill'; alias tk='tmux_kill'
 alias lgit='lazygit'
 
-source <(kubectl completion zsh)
-alias k=kubectl
+# source <(kubectl completion zsh)
+# alias k=kubectl
 
 # fzf
 source <(fzf --zsh)
@@ -205,3 +205,4 @@ eval "$(zoxide init zsh)"
 
 #starship
 eval "$(starship init zsh)"
+source /Users/sudarshanv/.config/op/plugins.sh

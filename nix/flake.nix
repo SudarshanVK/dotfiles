@@ -59,7 +59,6 @@
             pkgs.stow
             pkgs.uv
             pkgs.poetry
-            pkgs.ruff
             pkgs.speedtest-cli
             pkgs.sshpass
             pkgs.starship
@@ -87,6 +86,8 @@
             "zkondor/dist"
         ];
         brews = [
+            "ruff"
+            "stow"
             "mas"
             "borders"
             "tmux"
@@ -95,14 +96,22 @@
             "fastfetch"
         ];
         casks = [
+            # "ngrok" #1Password cli integration
+            "microsoft-edge"
+            "font-meslo-lg-nerd-font"
+            "font-inconsolata-nerd-font"
+            "font-fira-code-nerd-font"
+            "font-iosevka-nerd-font"
+            "font-jetbrains-mono-nerd-font"
+            "font-sauce-code-pro-nerd-font"
+            "font-space-mono-nerd-font"
+            "font-ubuntu-nerd-font"
+            "font-victor-mono-nerd-font"
             "font-monaspace"
-            "hazeover"
             "karabiner-elements"
             "firefox"
-            "aerospace"
             "appcleaner"
             "discord"
-            "displaylink"
             "iterm2"
             "itsycal"
             "monitorcontrol"
@@ -113,13 +122,10 @@
             "zed"
             "wireshark"
             "whatsapp"
-            "zoom"
             "raycast"
             "sf-symbols"
             "1password"
             "1password-cli"
-            "only-switch"
-            "rocket"
             "chatgpt"
             "ghostty"
         ];
@@ -142,7 +148,7 @@
                 orientation = "left";
                 show-recents = false;
                 mineffect = "scale";
-                tilesize = 42;
+                tilesize = 35;
                 "minimize-to-application" = true;
                 "mru-spaces" = false;
             };
