@@ -94,10 +94,10 @@
             "bash"
             "cdktf"
             "fastfetch"
+            "node"
         ];
         casks = [
             # "ngrok" #1Password cli integration
-            "microsoft-edge"
             "font-meslo-lg-nerd-font"
             "font-inconsolata-nerd-font"
             "font-fira-code-nerd-font"
@@ -108,7 +108,7 @@
             "font-ubuntu-nerd-font"
             "font-victor-mono-nerd-font"
             "font-monaspace"
-            "karabiner-elements"
+            # "bettertouchtool"
             "firefox"
             "appcleaner"
             "discord"
@@ -186,7 +186,7 @@
         };
 
       # Auto upgrade nix package and the daemon service.
-      services.nix-daemon.enable = true;
+      # services.nix-daemon.enable = true;
       # nix.package = pkgs.nix;
 
       # Necessary for using flakes on this system.
