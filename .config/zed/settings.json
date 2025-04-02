@@ -163,7 +163,7 @@
     "assistant": {
         "default_model": {
             "provider": "zed.dev",
-            "model": "claude-3-5-sonnet-latest"
+            "model": "claude-3-7-sonnet-latest"
         },
         "enabled": true,
         "button": true,
@@ -244,7 +244,7 @@
     },
     "features": {
         // Which inline completion provider to use.
-        "inline_completion_provider": "copilot"
+        "inline_completion_provider": "zed"
     },
     "lsp": {
         "terraform-ls": {

@@ -3,7 +3,7 @@ name = Sudarshan V
 email = sudarshanv@unimelb.edu.au
 	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC4YJvMUnnjr7m4MWPr9Z01n4KQXO9tZkl8dh4PwDJlQLT63+/btP55KggJgfEMNL06D6K5oumo4gHtTUMn0FO6YYmpAprih0cXqDaNo9MH41BBW/Kh8bh5zQup0V7J+g3lB12SGB8pWoE7PJ0WT77EJ/F9UnLg48spBfCsDZFXCTCV/WbrYmKImexw+Vg+8fFuunW2DhHcUQRg48eDe90EkwY7w8xkyZ4S1HPggErZmcBVbSslkNYOrpwZ3CP+o7FQ4xcgxHrxkdnW/h9wztW290pVopAQUvOOvuVeKPBzXCDv/O+SHswcWpLdFL2yXp9gp1eGnmSmR2zVCBHEJaEjYA9DhS1T7i0xQXNpZmXU8PZX1eD2h7AQboTljqCy1Yj7WNon3v6e+ObOH8xW2kavWnGfR8sgn3tG3+rGjEcFtGjQAc8HkMlQCW1m78dwacKWrMvo81vMFT47pyQMhzM1z5JrzZ+i1k4dr8EhWHrV3nT8lDa4m0LDZwuEZjThml8=
 [core]
-editor = vscode
+editor = code --wait
 pager = delta
 
 [init]

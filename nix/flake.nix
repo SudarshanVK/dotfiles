@@ -89,7 +89,6 @@
             "ruff"
             "stow"
             "mas"
-            "borders"
             "tmux"
             "bash"
             "cdktf"
@@ -109,15 +108,14 @@
             "font-victor-mono-nerd-font"
             "font-monaspace"
             # "bettertouchtool"
+            "zen-browser"
             "firefox"
             "appcleaner"
             "discord"
-            "iterm2"
             "itsycal"
             "monitorcontrol"
             "onyx"
             "slack"
-            "stats"
             "visual-studio-code"
             "zed"
             "wireshark"
@@ -128,6 +126,7 @@
             "1password-cli"
             "chatgpt"
             "ghostty"
+            "iterm2"
         ];
 
         # execute `mas search <app name> to get the id`
