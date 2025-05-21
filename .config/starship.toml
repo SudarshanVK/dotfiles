@@ -2,7 +2,7 @@ format = """
 $username\
 $hostname\
 $directory\
-$fill\
+$kubernetes\
 $git_branch\
 $git_state\
 $git_status\
@@ -44,9 +44,12 @@ format = '[$symbol$context]($style) '
 style = 'bright-cyan'
 
 [kubernetes]
-symbol = '󱃾 '
-format = '[$symbol$context( \($namespace\))]($style) in '
-style = 'bright-cyan'
+format = '[$context]($style) '
+style = 'bold blue'
+disabled = false
+
+[kubernetes.context_aliases]
+k3shome = ""  # hide default context entirely
 
 [git_branch]
 symbol = ' '

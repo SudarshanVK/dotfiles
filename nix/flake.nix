@@ -71,7 +71,6 @@
             pkgs.drawio
             pkgs.lazygit
             pkgs.inetutils
-            pkgs.open-policy-agent
         ];
 
       # fonts.packages = with pkgs; [
@@ -94,6 +93,14 @@
             "cdktf"
             "fastfetch"
             "node"
+            "yq"
+            "kustomize"
+            "kubectx"
+            "awscli"
+            "kubelogin"
+            "gh"
+            "openjdk@17"
+
         ];
         casks = [
             # "ngrok" #1Password cli integration
@@ -108,9 +115,11 @@
             "font-victor-mono-nerd-font"
             "font-monaspace"
             # "bettertouchtool"
-            "google-chrome"
+            "orion"
+            "cursor"
+            "firefox"
+            "legcord"
             "appcleaner"
-            "discord"
             "itsycal"
             "monitorcontrol"
             "onyx"
@@ -121,11 +130,10 @@
             "whatsapp"
             "raycast"
             "sf-symbols"
-            "1password"
-            "1password-cli"
             "chatgpt"
             "ghostty"
             "iterm2"
+            "postman"
         ];
 
         # execute `mas search <app name> to get the id`
@@ -139,7 +147,7 @@
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
         };
-
+      system.primaryUser = "sudarshanv";
       system.defaults = {
             dock = {
                 autohide = false;

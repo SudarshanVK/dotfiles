@@ -71,7 +71,7 @@
         "git_diff": true,
         "search_results": true,
         "selected_symbol": true,
-        "diagnostics": "all"
+        "diagnostics": true
     },
     "tab_bar": {
         "show": true,
@@ -113,7 +113,7 @@
         "include_ignored": false,
         "regex": false
     },
-    "show_edit_predictions": true,
+    "show_inline_completions": true,
     "show_completions_on_input": true,
     "soft_wrap": "preferred_line_length",
     "show_wrap_guides": false,
@@ -161,10 +161,9 @@
         }
     },
     "assistant": {
-        "default_profile": "write",
         "default_model": {
-            "provider": "copilot_chat",
-            "model": "claude-3-7-sonnet"
+            "provider": "zed.dev",
+            "model": "claude-3-7-sonnet-latest"
         },
         "enabled": true,
         "button": true,
@@ -245,7 +244,7 @@
     },
     "features": {
         // Which inline completion provider to use.
-        "edit_prediction_provider": "zed"
+        "inline_completion_provider": "zed"
     },
     "lsp": {
         "terraform-ls": {

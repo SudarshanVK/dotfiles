@@ -45,7 +45,7 @@ function nix-update() {
 }
 
 function nix-install() {
-    darwin-rebuild switch --flake ~/dotfiles/nix#macos
+    sudo darwin-rebuild switch --flake ~/dotfiles/nix#macos
 }
 
 # Function to create a new tmux session with a passed name
@@ -90,7 +90,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-# zinit light MichaelAquilina/zsh-autoswitch-virtualenv
+zinit light MichaelAquilina/zsh-autoswitch-virtualenv
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -163,8 +163,12 @@ alias tattach='tmux_attach'; alias ta='tmux_attach'
 alias tkill='tmux_kill'; alias tk='tmux_kill'
 alias lgit='lazygit'
 
-# source <(kubectl completion zsh)
-# alias k=kubectl
+source <(kubectl completion zsh)
+alias k=kubectl
+alias kx='kubectx'
+
+export JAVA_HOME=$(/usr/libexec/java_home -v17)
+export PATH="$JAVA_HOME/bin:$PATH"
 
 # fzf
 source <(fzf --zsh)
@@ -200,9 +204,19 @@ _fzf_comprun() {
 export LESS=eFRX
 # export TERM=xterm-256color
 
+# Kube config file
+export KUBECONFIG=~/.kube/home:~/.kube/eks:~/.kube/rancher:~/.kube/config
+
 # Zoxide
 eval "$(zoxide init zsh)"
 
 #starship
 eval "$(starship init zsh)"
 source /Users/sudarshanv/.config/op/plugins.sh
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/sudarshanv/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
