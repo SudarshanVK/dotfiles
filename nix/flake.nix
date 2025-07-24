@@ -32,6 +32,8 @@
             # FONTS
             # pkgs.fira-code-nerdfont
            # pkgs.nerdfonts
+    	    pkgs.bashInteractive
+    	    pkgs.ncurses
             pkgs.meslo-lgs-nf
             pkgs.source-code-pro
             pkgs.anonymousPro
@@ -62,13 +64,11 @@
             pkgs.speedtest-cli
             pkgs.sshpass
             pkgs.starship
-            pkgs.thefuck
             pkgs.tldr
             pkgs.tree
             pkgs.wget
             pkgs.zoxide
             pkgs.zsh
-            pkgs.drawio
             pkgs.lazygit
             pkgs.inetutils
         ];
@@ -115,10 +115,11 @@
             "font-victor-mono-nerd-font"
             "font-monaspace"
             # "bettertouchtool"
-            "orion"
             "cursor"
+	        "kiro"
+	        "google-chrome"
             "firefox"
-            "legcord"
+	        "discord"
             "appcleaner"
             "itsycal"
             "monitorcontrol"
@@ -126,12 +127,12 @@
             "slack"
             "visual-studio-code"
             "zed"
-            "wireshark"
             "whatsapp"
+            "postman"
             "raycast"
             "sf-symbols"
             "chatgpt"
-            "ghostty"
+	    "warp"
             "iterm2"
             "postman"
         ];

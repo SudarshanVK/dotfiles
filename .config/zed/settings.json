@@ -7,6 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "edit_predictions": {
+        "disabled_globs": [],
+        "mode": "eager",
+        "copilot": {
+            "proxy": null,
+            "proxy_no_verify": null
+        },
+        "enabled_in_text_threads": false
+    },
     "ssh_connections": [
         {
             "host": "svkubuntu",
@@ -160,11 +169,12 @@
             "show": "auto"
         }
     },
-    "assistant": {
+    "agent": {
+        "always_allow_tool_actions": false,
         "default_profile": "write",
         "default_model": {
             "provider": "copilot_chat",
-            "model": "claude-3-7-sonnet"
+            "model": "gpt-4.1"
         },
         "enabled": true,
         "button": true,
