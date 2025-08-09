@@ -40,7 +40,6 @@
             pkgs.hack-font
             # PACKAGES
             pkgs.nixd
-            pkgs.ollama
             pkgs.neovim
             pkgs.asciinema-agg
             pkgs.asciinema
@@ -100,6 +99,8 @@
             "kubelogin"
             "gh"
             "openjdk@17"
+            "gopass"
+            "ollama"
 
         ];
         casks = [
@@ -164,31 +165,31 @@
             };
             CustomUserPreferences = {
                 "com.apple.trackpad" = {
-                    forceClick = true;
-                    enableSecondaryClick = true;
-                    momentumScroll = true;
-                    pinchGesture = true;
-                    rotateGesture = true;
-                    twoFingerDoubleTapGesture = true;
+                    forceClick = 1;
+                    enableSecondaryClick = 1;
+                    momentumScroll = 1;
+                    pinchGesture = 1;
+                    rotateGesture = 1;
+                    twoFingerDoubleTapGesture = 1;
                 };
                 "com.apple.desktopservices" = {
                     # Avoid creating .DS_Store files on network or USB volumes
-                      DSDontWriteNetworkStores = true;
-                      DSDontWriteUSBStores = true;
-                    };
+                    DSDontWriteNetworkStores = 1;
+                    DSDontWriteUSBStores = 1;
+                };
                 "com.apple.screencapture" = {
                     location = "~/Desktop";
                     type = "png";
-                    };
+                };
                 "com.apple.SoftwareUpdate" = {
-                    AutomaticCheckEnabled = true;
+                    AutomaticCheckEnabled = 1;
                     # Check for software updates daily, not just once per week
                     ScheduleFrequency = 1;
                     # Download newly available updates in background
                     AutomaticDownload = 1;
                     # Install System data files & security updates
                     CriticalUpdateInstall = 1;
-                    };
+                };
             };
         };
 
