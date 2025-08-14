@@ -224,3 +224,13 @@ compinit
 # End of Docker CLI completions
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+
+if [[ -d ~/dotfiles/.shell_functions ]]; then
+    for file in ~/dotfiles/.shell_functions/*.sh; do
+        if [[ -f "$file" ]]; then
+            echo "Loading shell function: $file"
+            source "$file"
+        fi
+    done
+fi
