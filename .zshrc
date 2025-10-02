@@ -167,6 +167,7 @@ source <(kubectl completion zsh)
 alias k=kubectl
 alias kx='kubectx'
 alias k3s='kubectl --kubeconfig ~/kubeconfigs/k3s-home.yaml'
+alias specify="uvx --from git+https://github.com/github/spec-kit.git specify init"
 
 export JAVA_HOME=$(/usr/libexec/java_home -v17)
 export PATH="$JAVA_HOME/bin:$PATH"

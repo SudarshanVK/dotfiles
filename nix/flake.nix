@@ -45,8 +45,6 @@
             pkgs.asciinema
             pkgs.bat
             pkgs.direnv
-            pkgs.docker
-            pkgs.docker-compose
             pkgs.eza
             pkgs.fd
             pkgs.fzf
@@ -84,6 +82,7 @@
             "zkondor/dist"
         ];
         brews = [
+
             "ruff"
             "stow"
             "mas"
@@ -93,6 +92,7 @@
             "fastfetch"
             "node"
             "yq"
+            "ansible-lint"
             "kustomize"
             "kubectx"
             "awscli"
@@ -101,10 +101,13 @@
             "openjdk@17"
             "gopass"
             "ollama"
-
+            "mdp"
+            "mcphost"
+            "presenterm"
         ];
         casks = [
-            # "ngrok" #1Password cli integration
+            "container"
+            "ngrok" #1Password cli integration
             "font-meslo-lg-nerd-font"
             "font-inconsolata-nerd-font"
             "font-fira-code-nerd-font"
@@ -117,7 +120,6 @@
             "font-monaspace"
             # "bettertouchtool"
             "cursor"
-	        "kiro"
 	        "google-chrome"
             "firefox"
 	        "discord"
@@ -133,7 +135,7 @@
             "raycast"
             "sf-symbols"
             "chatgpt"
-	    "warp"
+	        "warp"
             "iterm2"
             "postman"
         ];

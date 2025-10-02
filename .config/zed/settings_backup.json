@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "assistant": {
+        "provider": "copilot"
+    },
     "edit_predictions": {
         "disabled_globs": [],
         "mode": "eager",
@@ -56,7 +59,7 @@
         }
     ],
     "remove_trailing_whitespace_on_save": true,
-    "theme": "Catppuccin Frappé",
+    "theme": "One Dark",
     "ui_font_size": 17,
     "ui_font_family": "Dank Mono",
     "ui_font_features": {
@@ -115,7 +118,6 @@
         "background_coloring": "disabled"
     },
     "hard_tabs": false,
-    "hour_format": "hour12",
     "search": {
         "whole_word": false,
         "case_sensitive": false,
@@ -139,7 +141,9 @@
         "detect_venv": {
             "on": {
                 "directories": [
-                    ".venv"
+                    ".venv",
+                    "venv",
+                    "env"
                 ],
                 "activate_script": "default"
             }
@@ -150,9 +154,6 @@
         "line_height": "comfortable",
         "option_as_meta": false,
         "button": false,
-        "toolbar": {
-            "title": true
-        },
         "working_directory": "current_project_directory"
     },
     "project_panel": {
@@ -169,8 +170,14 @@
             "show": "auto"
         }
     },
-    "assistant": {
-        "always_allow_tool_actions": false,
+    "agent": {
+        "use_modifier_to_send": true,
+        "play_sound_when_agent_done": true,
+        "inline_assistant_model": {
+            "provider": "copilot_chat",
+            "model": "claude-sonnet-4"
+        },
+        "always_allow_tool_actions": true,
         "default_profile": "write",
         "default_model": {
             "provider": "copilot_chat",
@@ -180,24 +187,17 @@
         "button": true,
         "dock": "right",
         "default_width": 640,
-        "default_height": 320,
-        "provider": "zed.dev",
-        "version": "2"
+        "default_height": 320
     },
     "unnecessary_code_fade": 0.5,
     "languages": {
         "YAML": {
             "tab_size": 2
         },
-        "nix": {
-            "command": "nixd",
-            "filetypes": [
-                "nix"
-            ]
-        },
         "Python": {
             "language_servers": [
-                "ruff"
+                "ruff",
+                "pyright"
             ],
             "format_on_save": "on",
             "formatter": [
@@ -269,29 +269,26 @@
         "ruff": {
             "initialization_options": {
                 "settings": {
-                    // Ruff server settings goes here
-                    "fixAll": false,
+                    "fixAll": true,
                     "showSyntaxErrors": true,
                     "organizeImports": true,
-                    "lineLength": 100,
-                    "lint": {
-                        "run": "onSave",
-                        "enabled": true,
-                        "select": [
-                            "E4",
-                            "E7",
-                            "E9",
-                            "F",
-                            "B",
-                            "Q",
-                            "ANN", // Type annotation rules
-                            "PYI", // .pyi file-related rules
-                            "TCH" // Type-checking related rules
-                        ],
-                        "extendSelect": [
-                            "W"
-                        ],
-                        "ignore": []
+                    "lineLength": 100
+                }
+            }
+        },
+        "pyright": {
+            "settings": {
+                "python": {
+                    "analysis": {
+                        "typeCheckingMode": "standard", // "basic", "standard", or "strict"
+                        "autoImportCompletions": true,
+                        "useLibraryCodeForTypes": true,
+                        "diagnosticSeverityOverrides": {
+                            "reportMissingImports": "error",
+                            "reportOptionalMemberAccess": "warning",
+                            "reportOptionalSubscript": "warning",
+                            "reportUnusedImport": "warning"
+                        }
                     }
                 }
             }
@@ -299,7 +296,7 @@
         "yaml-language-server": {
             "settings": {
                 "yaml": {
-                    "keyOrdering": false // Enforces alphabetical ordering of keys in maps
+                    "keyOrdering": false
                 }
             }
         },
