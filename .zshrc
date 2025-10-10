@@ -215,6 +215,12 @@ export KUBECONFIG=~/.kube/home:~/.kube/eks:~/.kube/rancher:~/.kube/config
 # Zoxide
 eval "$(zoxide init zsh)"
 
+# Window title function for iTerm2
+function set_win_title(){
+    echo -ne "\033]0; $("$PWD") \007"
+}
+precmd_functions=(set_win_title)
+
 #starship
 eval "$(starship init zsh)"
 source /Users/sudarshanv/.config/op/plugins.sh

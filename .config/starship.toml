@@ -10,6 +10,9 @@ $git_metrics\
 $python\
 $golang\
 $terraform\
+$rust\
+$memory_usage\
+$battery\
 $line_break\
 $character"""
 
@@ -29,13 +32,24 @@ symbol = ' '
 [directory]
 style = '#e5c890'
 read_only = ' 󰌾'
-truncation_length = 4
-truncate_to_repo = false
+truncation_length = 3
+truncate_to_repo = true
+home_symbol = '~'
+
+[cmd_duration]
+min_time = 200
+format = "took [$duration]($style)"
+style = "bold yellow"
+
+[time]
+disabled = false
+format = "[$time]($style)"
+style = "bold blue"
 
 [character]
-success_symbol = '[⇒](bold green)'
-error_symbol = '[⇒](bold red)'
-vicmd_symbol = '[⇒](bold blue)'
+success_symbol = '[λ](bold green)'
+error_symbol = '[λ](bold red)'
+vicmd_symbol = '[λ](bold blue)'
 
 [docker_context]
 symbol = ' '
@@ -52,17 +66,26 @@ disabled = false
 k3shome = ""  # hide default context entirely
 
 [git_branch]
-symbol = ' '
+symbol = ' '
 format = '[$symbol$branch]($style) '
-style = 'bright-black'
+style = 'bright-purple'
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = '🔖 '
 
 [git_status]
-format = "[($ahead_behind$stashed)]($style) "
+format = "[($ahead_behind$stashed$conflicted$untracked$modified$staged)]($style) "
 style = "cyan"
+up_to_date = '✓'
 stashed = "≡"
 ahead = "⇡${count}"
 behind = "⇣${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+conflicted = "🏳"
+untracked = "?"
+modified = "!"
+staged = "+"
 
 [git_metrics]
 disabled = false
@@ -83,11 +106,9 @@ symbol = '󱁢 '
 format = '[$symbol($version )]($style)'
 detect_extensions = ['tf', 'tfplan', 'tfstate']
 
-[cmd_duration]
-min_time = 500
-format = "[$duration]($style)"
-style = "bold yellow"
-
-[time]
+[aws]
+symbol = '☁️ '
+format = '[$symbol($profile)(\\($region\\))]($style) '
+style = 'bold yellow'
 disabled = false
-format = "[$time]($style)"
+detect_env_vars = ['AWS_PROFILE', 'AWS_ACCESS_KEY_ID', 'AWS_SESSION_TOKEN']
