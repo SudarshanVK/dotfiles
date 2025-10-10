@@ -235,3 +235,7 @@ if [[ -d ~/dotfiles/.shell_functions ]]; then
         fi
     done
 fi
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"

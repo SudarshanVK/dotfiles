@@ -52,7 +52,7 @@
             pkgs.delta
             pkgs.go
             pkgs.terraform
-            pkgs.ipcalc
+            pkgs.netmask  # pure C implementation for IP calculations
             pkgs.jq
             pkgs.libffi
             pkgs.stow
