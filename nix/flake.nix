@@ -82,7 +82,8 @@
             "zkondor/dist"
         ];
         brews = [
-
+            "utf8proc" # needed for tmux
+            "tmux"
             "ruff"
             "stow"
             "mas"

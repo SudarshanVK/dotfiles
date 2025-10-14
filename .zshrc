@@ -168,6 +168,8 @@ alias k=kubectl
 alias kx='kubectx'
 alias k3s='kubectl --kubeconfig ~/kubeconfigs/k3s-home.yaml'
 alias specify="uvx --from git+https://github.com/github/spec-kit.git specify init"
+alias trestart='tmux source-file ~/.tmux.conf && echo "✅ Tmux config reloaded"'
+
 
 export JAVA_HOME=$(/usr/libexec/java_home -v17)
 export PATH="$JAVA_HOME/bin:$PATH"
@@ -217,9 +219,13 @@ eval "$(zoxide init zsh)"
 
 # Window title function for iTerm2
 function set_win_title(){
-    echo -ne "\033]0; $("$PWD") \007"
+    if [[ -r "$PWD" ]]; then
+        echo -ne "\033]0; $(basename "$PWD") \007"
+    else
+        echo -ne "\033]0; Terminal \007"
+    fi
 }
-precmd_functions=(set_win_title)
+precmd_functions+=(set_win_title)
 
 #starship
 eval "$(starship init zsh)"
@@ -243,5 +249,11 @@ if [[ -d ~/dotfiles/.shell_functions ]]; then
 fi
 
 . "$HOME/.atuin/bin/env"
-
 eval "$(atuin init zsh)"
+
+# Custom atuin keybindings
+# Ctrl+R to open atuin search
+bindkey '^r' atuin-search
+# Disable up arrow for atuin (use normal shell history navigation)
+bindkey '^[[A' up-line-or-history
+bindkey '^[[B' down-line-or-history

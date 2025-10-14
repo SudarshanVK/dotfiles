@@ -47,9 +47,9 @@ format = "[$time]($style)"
 style = "bold blue"
 
 [character]
-success_symbol = '[λ](bold green)'
-error_symbol = '[λ](bold red)'
-vicmd_symbol = '[λ](bold blue)'
+success_symbol = '[⚡](bold #96ceb4)'
+error_symbol = '[⚡](bold #ff6b6b)'
+vicmd_symbol = '[⚡](bold #4ecdc4)'
 
 [docker_context]
 symbol = ' '
@@ -66,7 +66,7 @@ disabled = false
 k3shome = ""  # hide default context entirely
 
 [git_branch]
-symbol = ' '
+symbol = ' '
 format = '[$symbol$branch]($style) '
 style = 'bright-purple'
 
