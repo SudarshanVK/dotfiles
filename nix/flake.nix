@@ -102,8 +102,6 @@
             "openjdk@17"
             "gopass"
             "ollama"
-            "mdp"
-            "mcphost"
             "presenterm"
         ];
         casks = [

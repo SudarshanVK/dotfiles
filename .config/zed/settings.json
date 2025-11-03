@@ -10,6 +10,11 @@
     /* Duplicated key auto-commented: "agent": {
         "provider": "copilot"
     }, */
+    "context_servers": {
+        
+    },
+    "vim_mode": true,
+    "icon_theme": "Material Icon Theme",
     "edit_predictions": {
         "disabled_globs": [],
         "mode": "eager",
@@ -55,7 +60,7 @@
         }
     ],
     "remove_trailing_whitespace_on_save": true,
-    "theme": "One Dark Pro",
+    "theme": "Catppuccin Frappé",
     "ui_font_size": 17,
     "ui_font_family": "Dank Mono",
     "ui_font_features": {
@@ -167,23 +172,11 @@
         }
     },
     "agent": {
-        "use_modifier_to_send": true,
-        "play_sound_when_agent_done": true,
-        "inline_assistant_model": {
-            "provider": "copilot_chat",
-            "model": "claude-sonnet-4"
-        },
-        "always_allow_tool_actions": true,
-        "default_profile": "write",
         "default_model": {
             "provider": "copilot_chat",
-            "model": "gpt-4.1"
+            "model": "claude-sonnet-4.5"
         },
-        "enabled": true,
-        "button": true,
-        "dock": "right",
-        "default_width": 640,
-        "default_height": 320
+        "model_parameters": []
     },
     "unnecessary_code_fade": 0.5,
     "languages": {
@@ -198,10 +191,10 @@
             "format_on_save": "on",
             "formatter": [
                 {
-                    "code_actions": {
-                        "source.organizeImports.ruff": true,
-                        "source.fixAll.ruff": true
-                    }
+                    "code_action": "source.organizeImports.ruff"
+                },
+                {
+                    "code_action": "source.fixAll.ruff"
                 },
                 {
                     "language_server": {
@@ -247,6 +240,10 @@
         "yaml": [
             "yaml",
             "yml"
+        ],
+        "terraform": [
+            "tf",
+            "tfvars"
         ]
     },
     "features": {

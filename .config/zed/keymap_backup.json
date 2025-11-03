@@ -22,7 +22,7 @@
             "cmd-down": "editor::MovePageDown",
             "cmd-0": "pane::SplitRight",
             "cmd-9": "pane::SplitLeft",
-            "cmd-[": "pane::ActivatePreviousItem",
+            "cmd-[": "pane::ActivatePrevItem",
             "cmd-]": "pane::ActivateNextItem"
         }
     }
