@@ -10,9 +10,7 @@
     /* Duplicated key auto-commented: "agent": {
         "provider": "copilot"
     }, */
-    "context_servers": {
-        
-    },
+    "context_servers": {},
     "vim_mode": true,
     "icon_theme": "Material Icon Theme",
     "edit_predictions": {
@@ -135,6 +133,7 @@
         "shell": {
             "program": "zsh"
         },
+        "default_height": 1,
         "alternate_scroll": "off",
         "blinking": "terminal_controlled",
         "copy_on_select": true,

@@ -40,6 +40,8 @@
             pkgs.hack-font
             # PACKAGES
             pkgs.nixd
+            pkgs.nil
+            pkgs.nixfmt-rfc-style
             pkgs.neovim
             pkgs.asciinema-agg
             pkgs.asciinema
@@ -118,8 +120,8 @@
             "font-victor-mono-nerd-font"
             "font-monaspace"
             # "bettertouchtool"
+            "zen"
             "cursor"
-	        "google-chrome"
             "firefox"
 	        "discord"
             "appcleaner"
