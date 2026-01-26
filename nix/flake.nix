@@ -41,7 +41,7 @@
             # PACKAGES
             pkgs.nixd
             pkgs.nil
-            pkgs.nixfmt-rfc-style
+            pkgs.nixfmt
             pkgs.neovim
             pkgs.asciinema-agg
             pkgs.asciinema
@@ -105,6 +105,7 @@
             "gopass"
             "ollama"
             "presenterm"
+            "gemini-cli"
         ];
         casks = [
             "container"
@@ -139,6 +140,7 @@
 	        "warp"
             "iterm2"
             "postman"
+            "ghostty"
         ];
 
         # execute `mas search <app name> to get the id`

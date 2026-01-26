@@ -113,6 +113,37 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
 
+# Auto-pair quotes in the Zsh prompt (ZLE). Ghostty can't do this; it must be done in the shell/editor.
+ghostty_autopair_quote() {
+  emulate -L zsh
+  setopt localoptions noshwordsplit
+
+  local quote_char="$1"
+
+  if [[ "${RBUFFER[1,1]}" == "${quote_char}" ]]; then
+    zle forward-char
+    return 0
+  fi
+
+  LBUFFER+="${quote_char}${quote_char}"
+  zle backward-char
+}
+
+ghostty_autopair_single_quote() {
+  ghostty_autopair_quote "'"
+}
+
+ghostty_autopair_double_quote() {
+  ghostty_autopair_quote '"'
+}
+
+zle -N ghostty_autopair_single_quote
+zle -N ghostty_autopair_double_quote
+bindkey -M emacs "'" ghostty_autopair_single_quote
+bindkey -M emacs '"' ghostty_autopair_double_quote
+bindkey -M viins "'" ghostty_autopair_single_quote
+bindkey -M viins '"' ghostty_autopair_double_quote
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -257,3 +288,6 @@ bindkey '^r' atuin-search
 # Disable up arrow for atuin (use normal shell history navigation)
 bindkey '^[[A' up-line-or-history
 bindkey '^[[B' down-line-or-history
+
+# Ghostty
+export XDG_CONFIG_HOME="$HOME/dotfiles/.config"
