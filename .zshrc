@@ -194,6 +194,9 @@ alias e="/Applications/Windsurf.app/Contents/MacOS/Electron"
 alias dc='docker compose'
 alias ap='ansible-playbook'
 alias ag='ansible-galaxy'
+alias gc='ai-commit'
+alias ga='git add .'
+alias gp='git push'
 # Tmux aliases
 alias tnew='tmux_new'; ; alias tn='tmux_new'
 alias tlist='tmux_list'; alias tl='tmux_list'
@@ -298,3 +301,5 @@ bindkey '^[[B' down-line-or-history
 
 # Ghostty
 export XDG_CONFIG_HOME="$HOME/dotfiles/.config"
+export PATH="$HOME/bin:$PATH"
+source /etc/variables/openai.env
