@@ -80,6 +80,12 @@ tmux_kill() {
   tmux kill-session -t "$1"
 }
 
+# Custom clear function to preserve scrollback
+clear_preserve_scrollback() {
+    printf '%*s' "$(tput lines)" '' | tr ' ' '\n'
+    tput cup 0 0
+}
+
 # Pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
@@ -172,6 +178,7 @@ alias lt='eza --tree --color=always --icons=always --no-filesize'
 alias li='eza --color=always --icons=always --no-filesize'
 alias cat='bat --theme=gruvbox-dark'
 alias c='clear'
+alias clear='clear_preserve_scrollback'
 alias tf='terraform'
 alias tfi='terraform init'
 alias tfiu='terraform init -upgrade'

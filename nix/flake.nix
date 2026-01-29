@@ -106,6 +106,7 @@
             "ollama"
             "presenterm"
             "gemini-cli"
+            "aicommits"
         ];
         casks = [
             "container"
