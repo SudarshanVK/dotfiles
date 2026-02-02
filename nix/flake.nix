@@ -85,6 +85,7 @@
         ];
         brews = [
             "utf8proc" # needed for tmux
+            "ansible"
             "tmux"
             "ruff"
             "stow"
