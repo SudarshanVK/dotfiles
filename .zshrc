@@ -303,3 +303,4 @@ bindkey '^[[B' down-line-or-history
 export XDG_CONFIG_HOME="$HOME/dotfiles/.config"
 export PATH="$HOME/bin:$PATH"
 source /etc/variables/openai.env
+export NODE_OPTIONS="--no-deprecation"
