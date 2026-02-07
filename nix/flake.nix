@@ -59,7 +59,6 @@
             pkgs.libffi
             pkgs.stow
             pkgs.uv
-            pkgs.poetry
             pkgs.speedtest-cli
             pkgs.sshpass
             pkgs.starship
@@ -82,6 +81,7 @@
             "nikitabobko/tap"
             "FelixKratz/formulae"
             "zkondor/dist"
+            "pulumi/tap"
         ];
         brews = [
             "utf8proc" # needed for tmux
@@ -92,7 +92,6 @@
             "mas"
             "tmux"
             "bash"
-            "cdktf"
             "fastfetch"
             "node"
             "yq"
@@ -108,6 +107,7 @@
             "presenterm"
             "gemini-cli"
             "aicommit2"
+            "pulumi/tap/pulumi"
         ];
         casks = [
             "container"

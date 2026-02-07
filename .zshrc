@@ -172,6 +172,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 
 # Alias
+alias code='code-insiders'
 alias ls='eza --color=always --long --git --no-filesize --icons=always --no-user'
 alias ll='eza --color=always --long --git --icons=always --no-filesize --group-directories-first -lah --no-user'
 alias lt='eza --tree --color=always --icons=always --no-filesize'
@@ -194,7 +195,7 @@ alias e="/Applications/Windsurf.app/Contents/MacOS/Electron"
 alias dc='docker compose'
 alias ap='ansible-playbook'
 alias ag='ansible-galaxy'
-alias gc='ai-commit'
+alias gc='aicommit2'
 alias ga='git add .'
 alias gp='git push'
 # Tmux aliases
@@ -304,3 +305,7 @@ export XDG_CONFIG_HOME="$HOME/dotfiles/.config"
 export PATH="$HOME/bin:$PATH"
 source /etc/variables/openai.env
 export NODE_OPTIONS="--no-deprecation"
+
+export NVM_DIR="$HOME/dotfiles/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
