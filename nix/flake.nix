@@ -93,7 +93,6 @@
             "tmux"
             "bash"
             "fastfetch"
-            "node"
             "yq"
             "ansible-lint"
             "kustomize"
