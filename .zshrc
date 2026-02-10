@@ -172,7 +172,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 
 # Alias
-alias code='code-insiders'
+# alias code='code-insiders'
 alias ls='eza --color=always --long --git --no-filesize --icons=always --no-user'
 alias ll='eza --color=always --long --git --icons=always --no-filesize --group-directories-first -lah --no-user'
 alias lt='eza --tree --color=always --icons=always --no-filesize'
@@ -303,7 +303,7 @@ bindkey '^[[B' down-line-or-history
 # Ghostty
 export XDG_CONFIG_HOME="$HOME/dotfiles/.config"
 export PATH="$HOME/bin:$PATH"
-source /etc/variables/openai.env
+# source /etc/variables/openai.env
 export NODE_OPTIONS="--no-deprecation"
 
 export NVM_DIR="$HOME/dotfiles/.config/nvm"
