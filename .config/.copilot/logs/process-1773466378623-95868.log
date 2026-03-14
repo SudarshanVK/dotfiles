@@ -1,0 +1,42 @@
+2026-03-14T05:32:59.189Z [INFO] Starting Copilot CLI: 0.0.407
+2026-03-14T05:32:59.189Z [INFO] Node.js version: v24.11.1
+2026-03-14T05:32:59.234Z [INFO] Login status unknown
+2026-03-14T05:32:59.238Z [INFO] Remote session access enabled
+2026-03-14T05:32:59.244Z [INFO] Welcome SudarshanVK (via COPILOT_GITHUB_TOKEN)!
+2026-03-14T05:32:59.255Z [ERROR] Starting remote MCP client for github-mcp-server with url: https://api.business.githubcopilot.com/mcp/readonly
+2026-03-14T05:32:59.255Z [ERROR] Creating MCP client for github-mcp-server...
+2026-03-14T05:32:59.256Z [ERROR] Connecting MCP client for github-mcp-server...
+2026-03-14T05:32:59.258Z [INFO] Init suggestion check completed
+2026-03-14T05:33:00.853Z [ERROR] MCP client for github-mcp-server connected, took 1597ms
+2026-03-14T05:33:00.853Z [ERROR] Started MCP client for remote server github-mcp-server
+2026-03-14T05:33:00.853Z [ERROR] GitHub MCP server configured after authentication
+2026-03-14T05:33:09.882Z [INFO] Successfully downloaded package, restart to update to version 1.0.5
+2026-03-14T05:33:10.438Z [ERROR] Uncaught Exception: write EIO
+Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:966:11)
+    at Socket._write (node:net:978:8)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Writable.write (node:internal/streams/writable:508:10)
+    at file:///Users/sudarshanv/.copilot/pkg/darwin-arm64/0.0.407/index.js:4054:2864
+    at new Promise (<anonymous>)
+    at Object.dispose (file:///Users/sudarshanv/.copilot/pkg/darwin-arm64/0.0.407/index.js:4054:2833)
+2026-03-14T05:33:10.443Z [ERROR] Uncaught Exception (suppressed, within error cooldown): read EIO
+Error: read EIO
+    at TTY.onStreamRead (node:internal/stream_base_commons:216:20)
+2026-03-14T05:33:10.496Z [ERROR] Uncaught Exception (suppressed, within error cooldown): write EIO
+Error: write EIO
+    at afterWriteDispatched (node:internal/stream_base_commons:159:15)
+    at writeGeneric (node:internal/stream_base_commons:150:3)
+    at Socket._writeGeneric (node:net:966:11)
+    at Socket._write (node:net:978:8)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Writable.write (node:internal/streams/writable:508:10)
+    at E_s.s.clear (file:///Users/sudarshanv/.copilot/pkg/darwin-arm64/0.0.407/index.js:3408:35)
+    at Object.onRender [as onImmediateRender] (file:///Users/sudarshanv/.copilot/pkg/darwin-arm64/0.0.407/index.js:3416:247)
+    at resetAfterCommit (file:///Users/sudarshanv/.copilot/pkg/darwin-arm64/0.0.407/index.js:3397:611)
+2026-03-14T05:33:10.698Z [ERROR] MCP transport for github-mcp-server closed
+2026-03-14T05:33:10.699Z [ERROR] MCP client for github-mcp-server closed

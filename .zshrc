@@ -172,7 +172,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 
 # Alias
-# alias code='code-insiders'
+# alias code='code'
+alias code='code-insiders'
 alias ls='eza --color=always --long --git --no-filesize --icons=always --no-user'
 alias ll='eza --color=always --long --git --icons=always --no-filesize --group-directories-first -lah --no-user'
 alias lt='eza --tree --color=always --icons=always --no-filesize'

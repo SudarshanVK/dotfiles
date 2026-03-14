@@ -98,6 +98,7 @@
             "kustomize"
             "kubectx"
             "awscli"
+            "aws-sam-cli"
             "kubelogin"
             "gh"
             "openjdk@17"
@@ -110,6 +111,7 @@
         ];
         casks = [
             "container"
+            "spokenly"
             "ngrok" #1Password cli integration
             "font-meslo-lg-nerd-font"
             "font-inconsolata-nerd-font"
@@ -123,6 +125,7 @@
             "font-monaspace"
             # "bettertouchtool"
             "zen"
+            "floorp"
             "cursor"
             "firefox"
 	        "discord"
@@ -142,6 +145,7 @@
             "iterm2"
             "postman"
             "ghostty"
+            "voiceink"
         ];
 
         # execute `mas search <app name> to get the id`
