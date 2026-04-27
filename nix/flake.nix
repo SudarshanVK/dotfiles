@@ -14,6 +14,20 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       nixpkgs.config.allowUnfree = true;
+      # nixpkgs sets direnv CGO_ENABLED=0 for static binaries; Darwin's Makefile
+      # still uses -linkmode=external, which requires CGO (see direnv GNUmakefile).
+      nixpkgs.overlays = [
+        (final: prev: {
+          direnv =
+            if prev.stdenv.hostPlatform.isDarwin then
+              prev.direnv.overrideAttrs (oldAttrs: {
+                env = (oldAttrs.env or { }) // { CGO_ENABLED = 1; };
+                doCheck = false;
+              })
+            else
+              prev.direnv;
+        })
+      ];
       environment.systemPackages =
         [
             # VSCODE Extentions
@@ -108,11 +122,15 @@
             "gemini-cli"
             "aicommit2"
             "pulumi/tap/pulumi"
+            "mole"
+            "docker"
+            "docker-compose"
+            "docker-buildx"
+            "colima"
         ];
         casks = [
             "container"
             "spokenly"
-            "ngrok" #1Password cli integration
             "font-meslo-lg-nerd-font"
             "font-inconsolata-nerd-font"
             "font-fira-code-nerd-font"
@@ -124,16 +142,12 @@
             "font-victor-mono-nerd-font"
             "font-monaspace"
             # "bettertouchtool"
-            "zen"
-            "floorp"
             "cursor"
             "firefox"
-	        "discord"
+            "zen"
             "appcleaner"
-            "itsycal"
-            "monitorcontrol"
-            "onyx"
             "slack"
+            "discord"
             "visual-studio-code"
             "zed"
             "whatsapp"
@@ -146,11 +160,12 @@
             "postman"
             "ghostty"
             "voiceink"
+            "bruno"
+            "spotify"
         ];
 
         # execute `mas search <app name> to get the id`
         masApps = {
-          "hiddenbar" = 1452453066;
           # "Xnip" = 1221250572;
           };
 

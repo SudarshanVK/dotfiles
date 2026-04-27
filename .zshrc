@@ -172,8 +172,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 
 # Alias
-# alias code='code'
-alias code='code-insiders'
+alias code='code'
+# alias code='code-insiders'
 alias ls='eza --color=always --long --git --no-filesize --icons=always --no-user'
 alias ll='eza --color=always --long --git --icons=always --no-filesize --group-directories-first -lah --no-user'
 alias lt='eza --tree --color=always --icons=always --no-filesize'
@@ -310,3 +310,6 @@ export NODE_OPTIONS="--no-deprecation"
 export NVM_DIR="$HOME/dotfiles/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#Colima
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
