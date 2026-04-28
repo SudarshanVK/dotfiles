@@ -5,9 +5,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ -f "/opt/homebrew/bin/brew" ]] then
-  # If you're using macOS, you'll want this enabled
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+# Homebrew - hardcoded for Apple Silicon to skip subprocess on every shell start
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+  export HOMEBREW_PREFIX="/opt/homebrew"
+  export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+  export HOMEBREW_REPOSITORY="/opt/homebrew"
+  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}"
+  export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
+  export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 fi
 
 # Set the directory we want to store zinit and plugins
@@ -28,15 +33,14 @@ source "${ZINIT_HOME}/zinit.zsh"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# TAB Color
-# Randomly apply a TAB color
+# TAB Color — uses $RANDOM (zsh builtin) instead of `jot` to avoid 3 subprocess calls per shell start
 function tabcolor {
-    local red=$(($(jot -r 1 128 192)))
-    local green=$(($(jot -r 1 128 192)))
-    local blue=$(($(jot -r 1 128 192)))
-    echo -n -e "\033]6;1;bg;red;brightness;$red\a"
-    echo -n -e "\033]6;1;bg;green;brightness;$green\a"
-    echo -n -e "\033]6;1;bg;blue;brightness;$blue\a"
+    local red=$((128 + RANDOM % 65))
+    local green=$((128 + RANDOM % 65))
+    local blue=$((128 + RANDOM % 65))
+    printf '\033]6;1;bg;red;brightness;%d\a' "$red"
+    printf '\033]6;1;bg;green;brightness;%d\a' "$green"
+    printf '\033]6;1;bg;blue;brightness;%d\a' "$blue"
 }
 tabcolor
 
@@ -48,55 +52,18 @@ function nix-install() {
     sudo darwin-rebuild switch --flake ~/dotfiles/nix#macos
 }
 
-# Function to create a new tmux session with a passed name
-tmux_new() {
-  if [ -z "$1" ]; then
-    echo "Please provide a session name."
-    return 1
-  fi
-  tmux new-session -s "$1"
-}
-
-# Function to list all tmux sessions
-tmux_list() {
-  tmux list-sessions
-}
-
-# Function to attach to a tmux session by name
-tmux_attach() {
-  if [ -z "$1" ]; then
-    echo "Please provide a session name to attach."
-    return 1
-  fi
-  tmux attach-session -t "$1"
-}
-
-# Function to kill a tmux session by name
-tmux_kill() {
-  if [ -z "$1" ]; then
-    echo "Please provide a session name to kill."
-    return 1
-  fi
-  tmux kill-session -t "$1"
-}
-
 # Custom clear function to preserve scrollback
 clear_preserve_scrollback() {
     printf '%*s' "$(tput lines)" '' | tr ' ' '\n'
     tput cup 0 0
 }
 
-# Pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi
-
-# Plugins
-zinit light zsh-users/zsh-syntax-highlighting
+# Plugins — zsh-syntax-highlighting MUST be loaded last (per its docs)
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit light MichaelAquilina/zsh-autoswitch-virtualenv
+zinit light zsh-users/zsh-syntax-highlighting
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -109,8 +76,17 @@ zinit snippet OMZP::command-not-found
 zinit snippet OMZP::dotenv
 # zinit snippet OMZP::autoenv
 
-# Load completions for zsh-completions
-autoload -Uz compinit && compinit
+# fpath additions — must come before compinit
+fpath=(/Users/sudarshanv/.docker/completions $fpath)
+fpath+=~/.zfunc
+
+# Single compinit call with 24h cache to avoid rescanning on every shell start
+autoload -Uz compinit
+if [[ $(stat -f %m "${HOME}/.zcompdump" 2>/dev/null || echo 0) -lt $(( $(date +%s) - 86400 )) ]]; then
+    compinit
+else
+    compinit -C
+fi
 zinit cdreplay -q
 
 # Keybindings
@@ -173,7 +149,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Alias
 alias code='code'
-# alias code='code-insiders'
+alias ci='code-insiders'
 alias ls='eza --color=always --long --git --no-filesize --icons=always --no-user'
 alias ll='eza --color=always --long --git --icons=always --no-filesize --group-directories-first -lah --no-user'
 alias lt='eza --tree --color=always --icons=always --no-filesize'
@@ -192,33 +168,28 @@ alias play='asciinema play'
 alias upload='asciinema upload'
 alias cd='z'
 alias zz='zed'
-alias e="/Applications/Windsurf.app/Contents/MacOS/Electron"
 alias dc='docker compose'
 alias ap='ansible-playbook'
 alias ag='ansible-galaxy'
 alias gc='aicommit2'
 alias ga='git add .'
 alias gp='git push'
-# Tmux aliases
-alias tnew='tmux_new'; ; alias tn='tmux_new'
-alias tlist='tmux_list'; alias tl='tmux_list'
-alias tattach='tmux_attach'; alias ta='tmux_attach'
-alias tkill='tmux_kill'; alias tk='tmux_kill'
 alias lgit='lazygit'
 
-source <(kubectl completion zsh)
+command -v kubectl &>/dev/null && source <(kubectl completion zsh)
 alias k=kubectl
 alias kx='kubectx'
 alias k3s='kubectl --kubeconfig ~/kubeconfigs/k3s-home.yaml'
 alias specify="uvx --from git+https://github.com/github/spec-kit.git specify init"
-alias trestart='tmux source-file ~/.tmux.conf && echo "✅ Tmux config reloaded"'
 
 
 export JAVA_HOME=$(/usr/libexec/java_home -v17)
 export PATH="$JAVA_HOME/bin:$PATH"
 
-# SSH key
-ssh-add ~/.ssh/id_rsa
+# SSH key — only add if not already loaded in the agent
+if ! ssh-add -l 2>/dev/null | grep -q "id_rsa"; then
+    ssh-add ~/.ssh/id_rsa 2>/dev/null
+fi
 
 # fzf
 source <(fzf --zsh)
@@ -255,7 +226,7 @@ export LESS=eFRX
 # export TERM=xterm-256color
 
 # Kube config file
-export KUBECONFIG=~/.kube/home:~/.kube/eks:~/.kube/rancher:~/.kube/config
+export KUBECONFIG=~/.kube/home:~/.kube/config
 
 # Zoxide
 eval "$(zoxide init zsh)"
@@ -272,22 +243,12 @@ precmd_functions+=(set_win_title)
 
 #starship
 eval "$(starship init zsh)"
-source /Users/sudarshanv/.config/op/plugins.sh
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/sudarshanv/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
-
-fpath+=~/.zfunc; autoload -Uz compinit; compinit
+# Docker CLI completions fpath and .zfunc are registered above near compinit
 
 
 if [[ -d ~/dotfiles/.shell_functions ]]; then
-    for file in ~/dotfiles/.shell_functions/*.sh; do
-        if [[ -f "$file" ]]; then
-            echo "Loading shell function: $file"
-            source "$file"
-        fi
+    for file in ~/dotfiles/.shell_functions/*.sh(N); do
+        [[ -f "$file" ]] && source "$file"
     done
 fi
 
@@ -307,9 +268,17 @@ export PATH="$HOME/bin:$PATH"
 # source /etc/variables/openai.env
 export NODE_OPTIONS="--no-deprecation"
 
+# NVM — lazy loaded to avoid 500ms+ startup penalty; loads on first use of node/npm/nvm
 export NVM_DIR="$HOME/dotfiles/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+_load_nvm() {
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+}
+nvm()  { unset -f nvm node npm npx yarn; _load_nvm; nvm  "$@" }
+node() { unset -f nvm node npm npx yarn; _load_nvm; node "$@" }
+npm()  { unset -f nvm node npm npx yarn; _load_nvm; npm  "$@" }
+npx()  { unset -f nvm node npm npx yarn; _load_nvm; npx  "$@" }
+yarn() { unset -f nvm node npm npx yarn; _load_nvm; yarn "$@" }
 
 #Colima
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
