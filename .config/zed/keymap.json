@@ -9,21 +9,75 @@
     {
         "context": "Workspace",
         "bindings": {
-            // "cmd-r": "assistant::ToggleFocus",
-            "cmd-b": "workspace::ToggleLeftDock",
-            "cmd-r": "workspace::ToggleRightDock"
-        }
+            "cmd-j": "terminal_panel::ToggleFocus",
+        },
     },
     {
-        "context": "Editor",
+        "context": "Editor && vim_mode == insert",
         "bindings": {
+            // "j k": "vim::NormalBefore"
+        },
+    },
+    {
+        "context": "Terminal",
+        "bindings": {
+            // "cmd-j": "workspace::ToggleLeftDock",
+            "Esc": "workspace::ToggleBottomDock",
+            "cmd-n": "workspace::NewTerminal",
+        },
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "cmd-e": "project_panel::ToggleFocus",
+        },
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "cmd-e": "project_panel::ToggleFocus",
+        },
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "cmd-g": "git_panel::ToggleFocus",
+        },
+    },
+    {
+        "context": "!ContextEditor > Editor && mode == full",
+        "use_key_equivalents": true,
+        "bindings": {
+            "alt-enter": "editor::OpenExcerpts",
+            "shift-enter": "editor::ExpandExcerpts",
+            "cmd-alt-enter": "editor::OpenExcerptsSplit",
+            "cmd-shift-e": "pane::RevealInProjectPanel",
+            "cmd-f8": "editor::GoToHunk",
+            "cmd-shift-f8": "editor::GoToPreviousHunk",
             "cmd-i": "assistant::InlineAssist",
-            "cmd-up": "editor::MovePageUp",
-            "cmd-down": "editor::MovePageDown",
-            "cmd-0": "pane::SplitRight",
-            "cmd-9": "pane::SplitLeft",
-            "cmd-[": "pane::ActivatePreviousItem",
-            "cmd-]": "pane::ActivateNextItem"
-        }
-    }
+            "ctrl-:": "editor::ToggleInlayHints",
+        },
+    },
+    {
+        "context": "Pane",
+        "use_key_equivalents": true,
+        "bindings": {
+            "cmd-1": ["pane::ActivateItem", 0],
+            "cmd-2": ["pane::ActivateItem", 1],
+            "cmd-3": ["pane::ActivateItem", 2],
+            "cmd-4": ["pane::ActivateItem", 3],
+            "cmd-5": ["pane::ActivateItem", 4],
+            "cmd-6": ["pane::ActivateItem", 5],
+            "cmd-7": ["pane::ActivateItem", 6],
+            "cmd-8": ["pane::ActivateItem", 7],
+            "cmd-9": ["pane::ActivateItem", 8],
+            "cmd-0": "pane::ActivateLastItem",
+        },
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "cmd-j": "terminal_panel::Toggle",
+        },
+    },
 ]

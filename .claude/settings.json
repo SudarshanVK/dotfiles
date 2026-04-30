@@ -1,0 +1,14 @@
+{
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://10.33.62.251:8001",
+    "ANTHROPIC_API_KEY": "sk-no-key-required",
+    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
+    "ANTHROPIC_CUSTOM_MODEL_OPTION": "unsloth/Qwen3-Coder-Next",
+    "ANTHROPIC_CUSTOM_MODEL_OPTION_NAME": "Qwen3-Coder-Next (Local)",
+    "ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION": "Local llama.cpp server"
+  },
+  "model": "unsloth/Qwen3-Coder-Next",
+  "hasCompletedOnboarding": true,
+  "primaryApiKey": "sk-no-key-required",
+  "effortLevel": "xhigh"
+}

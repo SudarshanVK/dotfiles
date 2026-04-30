@@ -1,0 +1,112 @@
+{
+  "version": 2,
+  "lastComputedDate": "2026-03-01",
+  "dailyActivity": [
+    {
+      "date": "2026-02-11",
+      "messageCount": 5,
+      "sessionCount": 1,
+      "toolCallCount": 0
+    },
+    {
+      "date": "2026-02-12",
+      "messageCount": 825,
+      "sessionCount": 4,
+      "toolCallCount": 130
+    },
+    {
+      "date": "2026-02-15",
+      "messageCount": 2,
+      "sessionCount": 1,
+      "toolCallCount": 0
+    },
+    {
+      "date": "2026-02-16",
+      "messageCount": 33,
+      "sessionCount": 1,
+      "toolCallCount": 5
+    },
+    {
+      "date": "2026-02-17",
+      "messageCount": 668,
+      "sessionCount": 4,
+      "toolCallCount": 140
+    }
+  ],
+  "dailyModelTokens": [
+    {
+      "date": "2026-02-11",
+      "tokensByModel": {
+        "claude-sonnet-4-5-20250929": 26
+      }
+    },
+    {
+      "date": "2026-02-12",
+      "tokensByModel": {
+        "claude-sonnet-4-5-20250929": 6761
+      }
+    },
+    {
+      "date": "2026-02-15",
+      "tokensByModel": {
+        "claude-sonnet-4-5-20250929": 8
+      }
+    },
+    {
+      "date": "2026-02-16",
+      "tokensByModel": {
+        "claude-sonnet-4-5-20250929": 200
+      }
+    },
+    {
+      "date": "2026-02-17",
+      "tokensByModel": {
+        "claude-sonnet-4-6": 298,
+        "claude-sonnet-4-5-20250929": 3517
+      }
+    }
+  ],
+  "modelUsage": {
+    "claude-sonnet-4-5-20250929": {
+      "inputTokens": 9039,
+      "outputTokens": 1473,
+      "cacheReadInputTokens": 41729001,
+      "cacheCreationInputTokens": 1720654,
+      "webSearchRequests": 0,
+      "costUSD": 0,
+      "contextWindow": 0,
+      "maxOutputTokens": 0
+    },
+    "claude-sonnet-4-6": {
+      "inputTokens": 43,
+      "outputTokens": 255,
+      "cacheReadInputTokens": 1224460,
+      "cacheCreationInputTokens": 93615,
+      "webSearchRequests": 0,
+      "costUSD": 0,
+      "contextWindow": 0,
+      "maxOutputTokens": 0
+    }
+  },
+  "totalSessions": 11,
+  "totalMessages": 1533,
+  "longestSession": {
+    "sessionId": "939c399e-4c74-4297-8c69-a5471ed8d0ea",
+    "duration": 2303326,
+    "messageCount": 564,
+    "timestamp": "2026-02-12T00:30:28.841Z"
+  },
+  "firstSessionDate": "2026-02-11T21:47:57.653Z",
+  "hourCounts": {
+    "8": 2,
+    "9": 1,
+    "10": 1,
+    "11": 1,
+    "13": 2,
+    "15": 1,
+    "16": 1,
+    "17": 1,
+    "21": 1
+  },
+  "totalSpeculationTimeSavedMs": 0
+}
