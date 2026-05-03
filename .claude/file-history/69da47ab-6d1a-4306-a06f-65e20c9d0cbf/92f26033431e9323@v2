@@ -1,0 +1,179 @@
+# AgentCore Gateway with Calculator API
+
+Deploy a Calculator REST API as an AWS Lambda function, expose it as an MCP tool surface via an AgentCore Gateway, and run a Strands AI agent in Bedrock AgentCore that discovers and invokes those tools via Cognito-authenticated MCP.
+
+## Architecture
+
+```mermaid
+graph TB
+    Runtime["AgentCore Runtime\\nagent.py"] --> Model["Bedrock Model\\nAmazon Nova Pro"]
+
+    Runtime --> Gateway["AgentCore Gateway\\n(MCP endpoint)"]
+
+    Gateway --> Cognito["Cognito\\n(client-credentials JWT)"]
+    Gateway --> CredProvider["Credential Provider\\n(injects x-api-key)"]
+    Gateway --> CalcAPI["API Gateway\\n+ x-api-key Auth"]
+
+    CalcAPI --> CalcLambda["Calculator Lambda\\n(FastAPI)"]
+    CalcAPI --> AuthLambda["Authorizer Lambda"]
+
+    CalcLambda --> Tools["Calculator Tools\\nadd, subtract, multiply, divide"]
+```
+
+**How it works:**
+1. **AgentCore Runtime** - Python application that runs in Bedrock AgentCore and hosts a Strands agent backed by Amazon Nova Pro.
+2. **AgentCore Gateway** - Bridges the Calculator REST API as an MCP tool surface using the uploaded OpenAPI spec; acts as a secure MCP endpoint for the agent.
+3. **Cognito M2M Auth** - The agent obtains a short-lived JWT via OAuth2 client-credentials flow and presents it as a `Bearer` token to the gateway.
+4. **Credential Provider** - Stores the Calculator API's static `x-api-key` so the gateway injects it transparently into outbound requests; the agent never handles the key directly.
+5. **Bedrock Model** - AI model (Amazon Nova Pro) that processes requests and decides which calculator tool to invoke.
+6. **API Gateway** - HTTP front-door for the Calculator Lambda with centralized token authorization.
+7. **Authorizer Lambda** - Validates the `x-api-key` header against a static token before allowing requests to the Calculator Lambda.
+8. **Calculator Lambda** - FastAPI application (via Mangum) exposing `add`, `subtract`, `multiply`, and `divide` endpoints.
+9. **OpenAPI Spec** - Drives the MCP tool surface shape; uploaded to the AgentCore Gateway at deploy time to define all four calculator tools.
+
+## Components
+
+### Infrastructure
+- `template.yaml` - SAM configuration for the Calculator Lambda, Authorizer Lambda, and API Gateway.
+- `samconfig.toml` - SAM deployment configuration (stack `lambda-api`, region `ap-southeast-2`).
+
+### Calculator API (Lambda)
+- `lambda_functions/calculator_api.py` - FastAPI app with `add`, `subtract`, `multiply`, and `divide` POST endpoints, adapted for Lambda via Mangum.
+- `lambda_functions/authorizer.py` - Lambda TOKEN authorizer that validates the `x-api-key` header against `API_AUTH_TOKEN`.
+- `lambda_functions/openapi_spec.json` - OpenAPI 3.0.3 spec describing the Calculator API (update `servers.url` after SAM deploy).
+- `lambda_functions/requirements.txt` - Python dependencies for the Lambda function.
+
+### AgentCore Gateway Management
+- `gateway/manage_gateway.py` - `typer` CLI with `deploy` and `cleanup` commands; writes credentials to `.gatewayenv`.
+- `gateway/utils/agent_core_utils.py` - Low-level AWS helpers for IAM roles, Cognito, AgentCore Gateway, and credential provider lifecycle.
+
+### AgentCore Runtime
+- `runtime/agent.py` - Bedrock AgentCore entrypoint that lazily initializes a Strands agent connected to the gateway MCP endpoint.
+- `runtime/requirements.txt` - Python dependencies for the agent runtime.
+
+### Testing and Debug
+- `test_lambda.py` - Raw HTTP smoke test against the deployed Calculator API Gateway (`API_BASE_URL`, `API_AUTH_TOKEN`).
+- `test_gateway.py` - Local integration test that connects directly to the AgentCore Gateway MCP endpoint (reads `.gatewayenv`); useful before deploying the runtime.
+- `test_setup.py` - End-to-end test invoking the deployed AgentCore Runtime via `boto3` (requires `AGENTCORE_RUNTIME_ARN`).
+
+## Features
+
+- **AgentCore Gateway as MCP Bridge** - Turns any OpenAPI-described REST API into an MCP tool surface without modifying the API.
+- **Cognito M2M Authentication** - Secure OAuth2 client-credentials flow; the agent obtains a scoped JWT per invocation.
+- **Transparent Credential Injection** - API key stored in a credential provider and injected by the gateway, keeping secrets out of the agent runtime.
+- **OpenAPI-Driven Tool Discovery** - Tools are derived directly from the OpenAPI spec; adding a new endpoint automatically adds a new MCP tool.
+- **Lazy Init / Warm Reuse** - The MCP client and Strands agent are initialized once per container lifetime and reused across invocations.
+- **AgentCore Runtime** - Managed AWS service endpoint for the agent with built-in logging, tracing, and metrics.
+- **Serverless & Scalable** - Automatic scaling with Lambda and API Gateway.
+- **SAM Deployment** - Infrastructure as code with AWS SAM.
+
+## Runtime Deployment Options
+
+The AgentCore runtime can be deployed in two ways:
+
+| Option | Use Case | Deployment | Commands |
+|--------|----------|-----------|----------|
+| **Local Gateway Test (no AgentCore)** | Development & Testing | Run on your machine | `python test_gateway.py` |
+| **AWS Bedrock AgentCore** | Production & Scalability | Managed AWS service | `agentcore configure` → `agentcore launch` |
+
+Both options connect to the same AgentCore Gateway MCP endpoint using Cognito JWT authentication.
+
+## Setup
+
+### Prerequisites
+- Python 3.12+
+- AWS SAM CLI installed
+- AWS CLI configured with appropriate permissions
+- Docker installed (for SAM builds)
+- AWS Bedrock access enabled in your region (sample config uses `ap-southeast-2`).
+
+1. **Deploy Calculator Lambda infrastructure**
+
+   Export the API authentication token as an environment variable.
+   ```bash
+   export API_AUTH_TOKEN=<your-secure-token>
+   ```
+   Build and deploy the Lambda infrastructure.
+   ```bash
+   sam build --use-container
+   sam deploy --parameter-overrides ApiAuthToken=$API_AUTH_TOKEN
+   ```
+   From the output of the deploy command, note the `ApiUrl` API Gateway URL.
+
+2. **Update the OpenAPI spec**
+
+   Edit `lambda_functions/openapi_spec.json` and replace the `servers[0].url` value with the `ApiUrl` from the previous step.
+   ```json
+   "servers": [{ "url": "<ApiUrl>" }]
+   ```
+
+3. **Deploy the AgentCore Gateway**
+
+   Run the gateway management CLI from the `gateway/` directory.
+   ```bash
+   python gateway/manage_gateway.py deploy
+   ```
+   This creates the IAM role, Cognito user pool, M2M client, API key credential provider, and AgentCore Gateway target, then writes all credentials to `.gatewayenv` in the project root.
+
+   Source the credentials for subsequent steps.
+   ```bash
+   source .gatewayenv
+   ```
+
+4. **Test the gateway locally**
+
+   This uses a local Strands agent that connects directly to the AgentCore Gateway MCP endpoint.
+   ```bash
+   python test_gateway.py
+   ```
+
+5. **Deploy the AgentCore Runtime**
+
+   ```bash
+   agentcore configure --entrypoint runtime/agent.py --name agentcore_gateway_calculator --disable-memory --non-interactive
+   ```
+
+   This creates a `.bedrock_agentcore` folder with a Dockerfile and a `.bedrock_agentcore.yaml` configuration file.
+
+   Launch with the gateway environment variables injected into the runtime:
+   ```bash
+   agentcore launch --agent agentcore_gateway_calculator \
+     --env GATEWAY_URL=$GATEWAY_URL \
+     --env USER_POOL_ID=$USER_POOL_ID \
+     --env CLIENT_ID=$CLIENT_ID \
+     --env CLIENT_SECRET=$CLIENT_SECRET \
+     --env SCOPE_STRING="$SCOPE_STRING" \
+     --auto-update-on-conflict
+   ```
+
+   Copy the ARN of the deployed AgentCore Runtime from the output of the launch command.
+   ```bash
+   export AGENTCORE_RUNTIME_ARN=<AgentCore Runtime ARN>
+   ```
+
+   Test the deployed AgentCore Runtime:
+   ```bash
+   agentcore invoke '{"prompt": "What is 25 * 4?"}'
+   python test_setup.py  # Python script to test with defined prompts
+   ```
+
+## Cleanup
+
+To remove all deployed resources:
+
+1. **Delete the AgentCore Runtime**
+   ```bash
+   agentcore destroy --agent agentcore_gateway_runtime --force
+   ```
+   Use `--dry-run` first to preview what would be destroyed. Omit `--force` for interactive confirmation.
+
+2. **Delete the AgentCore Gateway and Cognito resources**
+   ```bash
+   python gateway/manage_gateway.py cleanup
+   ```
+
+3. **Delete the Lambda infrastructure (SAM stack)**
+   ```bash
+   sam delete --stack-name lambda-api --no-prompts
+   ```
+   The stack name `lambda-api` comes from `samconfig.toml`. Omit `--no-prompts` for interactive confirmation.

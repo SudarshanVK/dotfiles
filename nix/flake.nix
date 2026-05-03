@@ -142,6 +142,8 @@
             "font-victor-mono-nerd-font"
             "font-monaspace"
             # "bettertouchtool"
+            "dockdoor"
+            "TheBoredTeam/boring-notch/boring-notch"
             "cursor"
             "firefox"
             "zen"

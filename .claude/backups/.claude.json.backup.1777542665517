@@ -1,5 +1,5 @@
 {
-  "numStartups": 15,
+  "numStartups": 16,
   "installMethod": "native",
   "autoUpdates": false,
   "customApiKeyResponses": {
@@ -10,7 +10,7 @@
   },
   "tipsHistory": {
     "new-user-warmup": 9,
-    "plan-mode-for-complex-tasks": 11,
+    "plan-mode-for-complex-tasks": 16,
     "terminal-setup": 12,
     "memory-command": 2,
     "theme-command": 2,
@@ -642,6 +642,51 @@
       "lastHintSessionId": "737c59a9-7c54-4e14-82fa-78d9389ebc2b",
       "lastSessionFirstPrompt": "how are you today?",
       "lastSessionModified": 1777460300913
+    },
+    "/Users/sudarshanv/Documents/code/production/mac-identity-mapper": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "index.ts",
+        "infoblox.ts",
+        "ise.ts",
+        "logger.ts",
+        "infoblox.test.ts"
+      ],
+      "lastGracefulShutdown": true,
+      "exampleFilesGeneratedAt": 1777508347246,
+      "lastCost": 0,
+      "lastAPIDuration": 0,
+      "lastAPIDurationWithoutRetries": 0,
+      "lastToolDuration": 0,
+      "lastDuration": 1476733,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 0,
+      "lastTotalOutputTokens": 0,
+      "lastTotalCacheCreationInputTokens": 0,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 0.02,
+      "lastFpsLow1Pct": 204.34,
+      "lastModelUsage": {},
+      "lastSessionId": "bd2b5cc8-43da-430b-95dd-d4a97dd51442",
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 31,
+        "frame_duration_ms_min": 0.1101250000001528,
+        "frame_duration_ms_max": 4.893750000000011,
+        "frame_duration_ms_avg": 1.0746963225846873,
+        "frame_duration_ms_p50": 0.731417000060901,
+        "frame_duration_ms_p95": 3.1484789999994973,
+        "frame_duration_ms_p99": 4.59872489999995
+      }
     }
   },
   "sonnet45MigrationComplete": true,
@@ -669,6 +714,9 @@
   "githubRepoPaths": {
     "sudarshanvk/dotfiles": [
       "/Users/sudarshanv/dotfiles"
+    ],
+    "unimelb-platform/mac-identity-mapper": [
+      "/Users/sudarshanv/Documents/code/production/mac-identity-mapper"
     ]
   },
   "migrationVersion": 12,
@@ -684,6 +732,18 @@
     "simplify": {
       "usageCount": 1,
       "lastUsedAt": 1777460337949
+    },
+    "sessions:sync": {
+      "usageCount": 1,
+      "lastUsedAt": 1777513044666
+    },
+    "update-config": {
+      "usageCount": 1,
+      "lastUsedAt": 1777515021859
+    },
+    "debug": {
+      "usageCount": 1,
+      "lastUsedAt": 1777521292652
     }
   }
 }
