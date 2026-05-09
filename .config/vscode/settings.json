@@ -3,7 +3,7 @@
         "file:///Users/sudarshanv/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.4/dist/updateHandler.js"
     ],
     // Editor Settings
-    "editor.guides.indentation": true,
+    "editor.guides.indentation": false,
     "editor.guides.bracketPairs": false,
     "editor.inlineSuggest.enabled": true,
     "editor.hideCursorInOverviewRuler": false,
@@ -16,7 +16,7 @@
     "editor.lineHeight": 1.8,
     "editor.lineNumbers": "on",
     "editor.renderWhitespace": "none",
-    "editor.hover.enabled": true,
+    "editor.hover.enabled": "on",
     "editor.scrollbar.horizontalScrollbarSize": 7,
     "editor.scrollbar.verticalScrollbarSize": 7,
     "editor.cursorSmoothCaretAnimation": "on",
@@ -58,16 +58,16 @@
         "*.html": "default",
         "*.json": "default"
     },
-    "workbench.editor.showTabs": "none",
+    "workbench.editor.showTabs": "multiple",
     "workbench.layoutControl.enabled": false,
     "workbench.settings.applyToAllProfiles": [
         "editor.fontFamily",
         "editor.fontSize",
         "editor.fontLigatures"
     ],
-    "workbench.iconTheme": "catppuccin-latte",
+    "workbench.iconTheme": "material-icon-theme",
     "material-icon-theme.hidesExplorerArrows": true,
-    "workbench.colorTheme": "Catppuccin Noctis Frappé",
+    "workbench.colorTheme": "One Dark Pro Darker",
     "workbench.editor.enablePreview": false,
     "workbench.startupEditor": "none",
     "workbench.tips.enabled": false,
@@ -87,20 +87,18 @@
     "terminal.integrated.ignoreProcessNames": [
         "zsh"
     ],
-    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.defaultProfile.osx": "tmux",
     "terminal.integrated.fontSize": 12.5,
     "terminal.integrated.shellIntegration.enabled": true,
     "terminal.integrated.mouseWheelZoom": true,
-    // rego
-    "opa.checkOnSave": true,
-    "opa.strictMode": false,
-    "opa.formatter": "opa-fmt",
     // Python
     "ruff.nativeServer": "on",
     "ruff.lineLength": 100,
     "ruff.showSyntaxErrors": true,
     "ruff.lint.enable": true,
     "ruff.lint.ignore": [],
+    "ruff.format.preview": true,
+    "ruff.lint.preview": true,
     "ruff.lint.select": [
         "E4",
         "E7",
@@ -125,15 +123,7 @@
             "source.unusedImports": "always"
         }
     },
-    "python.analysis.typeCheckingMode": "standard",
-    "python.analysis.autoImportCompletions": true,
-    "python.analysis.diagnosticSeverityOverrides": {
-        "reportMissingModuleSource": "none"
-    },
     "python.testing.pytestEnabled": true,
-    "python.analysis.typeshedPaths": [
-        ".venv/Lib/site-packages"
-    ],
     // "[rego]": {
     //     "editor.codeActionsOnSave": {},
     //     "editor.formatOnSave": false,
@@ -145,6 +135,28 @@
         "editor.defaultFormatter": "redhat.vscode-yaml",
         "editor.tabSize": 2
     },
+    "yaml.customTags": [
+        "!Ref scalar",
+        "!Sub scalar",
+        "!Sub sequence",
+        "!GetAtt scalar",
+        "!GetAtt sequence",
+        "!Join sequence",
+        "!FindInMap sequence",
+        "!Select sequence",
+        "!Split sequence",
+        "!If sequence",
+        "!Equals sequence",
+        "!And sequence",
+        "!Or sequence",
+        "!Not sequence",
+        "!ImportValue scalar",
+        "!ImportValue sequence",
+        "!Base64 scalar",
+        "!Base64 sequence",
+        "!Cidr sequence",
+        "!Transform mapping"
+    ],
     // Git
     "scm.diffDecorations": "gutter",
     "git.autofetch": true,
@@ -191,6 +203,7 @@
         "bigiq",
         "bkpfilename",
         "blockinfile",
+        "boto",
         "bramvdbogaerde",
         "brandonkirbyson",
         "Buildx",
@@ -215,6 +228,7 @@
         "containerd",
         "cowsay",
         "cpcfg",
+        "Cred",
         "creds",
         "csmgrctl",
         "Datacentre",
@@ -245,6 +259,7 @@
         "extention",
         "fastapi",
         "fastl",
+        "fastmcp",
         "fatih",
         "filematch",
         "fillna",
@@ -256,6 +271,7 @@
         "fromzone",
         "fullchain",
         "fullpath",
+        "gatewayenv",
         "gbps",
         "getenv",
         "gethostbyaddr",
@@ -268,6 +284,7 @@
         "Gruvbox",
         "hashicorpvault",
         "herror",
+        "hfid",
         "Hostbackup",
         "hostcolor",
         "hostnames",
@@ -391,6 +408,7 @@
         "powersup",
         "pptp",
         "prerules",
+        "proc",
         "profilesstate",
         "psinfo",
         "psnum",
@@ -486,6 +504,7 @@
         "twosided",
         "typedesc",
         "TYPEID",
+        "typer",
         "typeshed",
         "ukey",
         "unconfigure",
@@ -580,7 +599,7 @@
     "extensions.ignoreRecommendations": true,
     "application.shellEnvironmentResolutionTimeout": 120,
     "redhat.telemetry.enabled": false,
-    "animations.Install-Method": "Custom CSS and JS",
+    "animations.Install-Method": "Custom UI Style",
     "apc.imports": [
         "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.4/dist/updateHandler.js"
     ],
@@ -624,57 +643,48 @@
             "line-height": "unset !important"
         }
     },
-    // apc settings
-    // "apc.stylesheet": {
-    //     // ".title-actions": "display: none !important",
-    //     // ".quick-input-widget.show-file-icons, .editor-widget.find-widget": "box-shadow: none !important",
-    //     // ".filematch .monaco-icon-label:before, .custom-list-row.results .monaco-list-row .monaco-icon-label:before": "background-position: 0 bottom !important",
-    //     // ".filematch .monaco-count-badge": "padding: 5px 6px 0 6px !important",
-    //     // ".sidebar .title-label": "padding: 0 !important",
-    //     // ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "outline: none !important",
-    //     // ".sidebar": "border: none !important",
-    //     ".monaco-editor .cursors-layer .cursor": "background-image: linear-gradient(135deg, #67D0FF 10%, #C45DFF 100%)",
-    //     ".quick-input-list-row div": "display: flex !important; align-items: center !important",
-    //     ".panel .composite.title": "visibility: hidden !important",
-    //     ".title.show-file-icons .label-container .monaco-icon-label.file-icon": "padding-bottom: 6px !important",
-    //     ".sidebar .title-label h2": "line-height: 2.8 !important",
-    //     ".monaco-editor .scroll-decoration": "display: none !important",
-    //     ".monaco-scrollable-element > .shadow.top": "display: none !important"
-    //     // ".monaco-split-view2 > .monaco-scrollable-element > .split-view-container": "background: #191521 !important",
-    // },
-    // "apc.font.family": "MonoLisa Nerd Font Mono",
-    // "apc.listRow": {
-    //     "lists": [
-    //         "explorer-folders-view",
-    //         "quick-input-list",
-    //         "results"
-    //     ],
-    //     "height": 25,
-    //     "fontSize": 12.5
-    // },
-    // "apc.menubar.compact": true,
-    // "apc.activityBar": {
-    //     "position": "bottom",
-    //     "size": 32,
-    //     "itemMargin": 1
-    // },
-    // // tab settings
-    // "apc.header": {
-    //     "height": 25,
-    //     "fontSize": 11
-    // },
-    // "apc.sidebar.titlebar": {
-    //     "height": 25,
-    //     "fontSize": 11
-    // },
-    // "apc.statusBar": {
-    //     "position": "editor-bottom",
-    //     "height": 25,
-    //     "fontSize": 11
-    // },
     "animations.Enabled": true,
     "workbench.editor.editorActionsLocation": "hidden",
-    "chat.editing.alwaysSaveWithGeneratedChanges": true,
     "catppuccin-icons.hidesExplorerArrows": true,
-    "workbench.statusBar.visible": false
+    "chat.viewSessions.orientation": "stacked",
+    "terminal.integrated.profiles.osx": {
+        "bash": {
+            "path": "bash",
+            "args": [
+                "-l"
+            ],
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "/run/current-system/sw/bin/zsh",
+            "args": [
+                "-l"
+            ]
+        },
+        "fish": {
+            "path": "fish",
+            "args": [
+                "-l"
+            ]
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+    "terminal.external.osxExec": "iterm.app",
+    "terminal.external.windowsExec": "",
+    "terminal.integrated.accessibleViewFocusOnCommandExecution": true,
+    "terminal.integrated.accessibleViewPreserveCursorPosition": true,
+    "claudeCode.useTerminal": true,
+    "python.defaultInterpreterPath": "/Users/sudarshanv/Documents/code/production/mcp-aws-agentcore/.venv",
+    "custom-ui-style.external.imports": [
+        "file:///Users/sudarshanv/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+    ],
+    "chat.mcp.gallery.enabled": true,
+    "python.analysis.typeCheckingMode": "basic",
 }
