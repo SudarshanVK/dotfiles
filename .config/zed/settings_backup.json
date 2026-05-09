@@ -7,26 +7,71 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "redact_private_values": true,
+  "cli_default_open_behavior": "new_window",
+  "agent_servers": {
+    "gemini": {
+      "type": "registry",
+    },
+    "github-copilot-cli": {
+      "type": "registry",
+    },
+    "cursor": {
+      "type": "registry",
+    },
+    "claude-acp": {
+      "type": "registry",
+    },
+  },
+  // "collaboration_panel": {
+  //   "dock": "left",
+  // },
+  // "git_panel": {
+  //   "dock": "left",
+  // },
+  "edit_predictions": {
+    "provider": "copilot",
+  },
   "ui_font_weight": 250.0,
   "ui_font_family": "Dank Mono",
   "agent": {
+    "sidebar_side": "right",
+    "show_turn_stats": true,
+    "message_editor_min_lines": 6,
+    "dock": "right",
+    "default_profile": "write",
+    "profiles": {
+      "plan": {
+        "name": "plan",
+        "tools": {},
+        "enable_all_context_servers": false,
+        "context_servers": {},
+      },
+    },
     "inline_assistant_model": {
       "provider": "copilot_chat",
       "model": "claude-sonnet-4.5",
     },
     "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5",
+      "model": "claude-sonnet-4.6",
     },
     "favorite_models": [
       {
         "provider": "copilot_chat",
         "model": "claude-sonnet-4.5",
+        "enable_thinking": false,
       },
     ],
     "model_parameters": [],
   },
   "outline_panel": {
+    "dock": "left",
     "git_status": false,
   },
   "base_keymap": "VSCode",
@@ -72,7 +117,7 @@
   "show_whitespaces": "none",
   "ensure_final_newline_on_save": true,
   "indent_guides": {
-    "enabled": true,
+    "enabled": false,
   },
   "tab_size": 2,
   "terminal": {
@@ -88,7 +133,7 @@
         "activate_script": "default",
       },
     },
-    "font_family": "FiraCode Nerd Font Mono",
+    "font_family": "Dank Mono",
     "font_size": 14.0,
     "toolbar": {
       "breadcrumbs": true,
@@ -116,21 +161,18 @@
   "buffer_line_height": {
     "custom": 2,
   },
-  "agent_ui_font_size": 14,
-  "agent_buffer_font_size": 14,
+  "agent_ui_font_size": 17.0,
+  "agent_buffer_font_size": 15.0,
   "buffer_font_weight": 250.0,
-  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "Dank Mono",
   "icon_theme": {
     "mode": "system",
     "light": "Zed (Default)",
     "dark": "Material Icon Theme",
   },
-  "features": {
-    "edit_prediction_provider": "copilot",
-  },
   "snippet_sort_order": "top",
   "ui_font_size": 17.0,
-  "buffer_font_size": 14.0,
+  "buffer_font_size": 14.5,
   "theme": {
     "mode": "dark",
     "light": "One Light",
@@ -226,6 +268,28 @@
       "settings": {
         "yaml": {
           "keyOrdering": false, // Enforces alphabetical ordering of keys in maps
+          "customTags": [
+            "!Ref scalar",
+            "!Sub scalar",
+            "!Sub sequence",
+            "!GetAtt scalar",
+            "!GetAtt sequence",
+            "!Join sequence",
+            "!FindInMap sequence",
+            "!Select sequence",
+            "!Split sequence",
+            "!If sequence",
+            "!Equals sequence",
+            "!And sequence",
+            "!Or sequence",
+            "!Not sequence",
+            "!ImportValue scalar",
+            "!ImportValue sequence",
+            "!Base64 scalar",
+            "!Base64 sequence",
+            "!Cidr sequence",
+            "!Transform mapping",
+          ],
         },
         "format": {
           "singleQuote": true,

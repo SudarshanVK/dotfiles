@@ -6,9 +6,46 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+    # Pin homebrew-core and homebrew-cask as flake inputs so that
+    # brew reads local Ruby DSL files instead of the online API JSON.
+    # This avoids the brew-5.1.7 `depends_on` nil-key parsing bug.
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+
+    # Third-party taps — with mutableTaps = false every tap must be a
+    # flake input. Convention: `brew tap owner/name` -> github:owner/homebrew-name
+    nikitabobko-tap = {
+      url = "github:nikitabobko/homebrew-tap";
+      flake = false;
+    };
+    felixkratz-formulae = {
+      url = "github:FelixKratz/homebrew-formulae";
+      flake = false;
+    };
+    zkondor-dist = {
+      url = "github:zkondor/homebrew-dist";
+      flake = false;
+    };
+    pulumi-tap = {
+      url = "github:pulumi/homebrew-tap";
+      flake = false;
+    };
+    boring-notch-tap = {
+      url = "github:theboredteam/homebrew-boring-notch";
+      flake = false;
+    };
   };
 
-  outputs = { self, nix-darwin, nix-homebrew, ... }:
+  outputs = { self, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask,
+              nikitabobko-tap, felixkratz-formulae, zkondor-dist, pulumi-tap,
+              boring-notch-tap, ... }:
   let
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
@@ -30,24 +67,8 @@
       ];
       environment.systemPackages =
         [
-            # VSCODE Extentions
-            # pkgs.vscode-extensions.batisteo.vscode-django
-            # pkgs.vscode-extensions.catppuccin.catppuccin-vsc
-            # pkgs.vscode-extensions.catppuccin.catppuccin-vsc-icons
-            # pkgs.vscode-extensions.charliermarsh.ruff
-            # pkgs.vscode-extensions.ms-python.python
-            # pkgs.vscode-extensions.github.copilot
-            # pkgs.vscode-extensions.github.copilot-chat
-            # pkgs.vscode-extensions.redhat.vscode-yaml
-            # pkgs.vscode-extensions.pkief.material-icon-theme
-            # pkgs.vscode-extensions.wholroyd.jinja
-            # pkgs.vscode-extensions.visualstudioexptteam.vscodeintellicode
-            # pkgs.vscode-extensions.visualstudioexptteam.intellicode-api-usage-examples
-            # FONTS
-            # pkgs.fira-code-nerdfont
-           # pkgs.nerdfonts
-    	    pkgs.bashInteractive
-    	    pkgs.ncurses
+     	      pkgs.bashInteractive
+    	      pkgs.ncurses
             pkgs.meslo-lgs-nf
             pkgs.source-code-pro
             pkgs.anonymousPro
@@ -96,6 +117,7 @@
             "FelixKratz/formulae"
             "zkondor/dist"
             "pulumi/tap"
+            "theboredteam/boring-notch"
         ];
         brews = [
             "utf8proc" # needed for tmux
@@ -142,8 +164,9 @@
             "font-victor-mono-nerd-font"
             "font-monaspace"
             # "bettertouchtool"
+            "drawio"
             "dockdoor"
-            "TheBoredTeam/boring-notch/boring-notch"
+            "boring-notch"
             "cursor"
             "firefox"
             "zen"
@@ -157,7 +180,7 @@
             "raycast"
             "sf-symbols"
             "chatgpt"
-	        "warp"
+            "warp"
             "iterm2"
             "postman"
             "ghostty"
@@ -263,6 +286,21 @@
 
                     # Migrate existing homebrew
                     autoMigrate = true;
+
+                    # Use pinned taps so brew reads local Ruby DSL files
+                    # instead of the Homebrew JSON API. This avoids the
+                    # brew-5.1.7 `process_depends_on` nil crash on newer
+                    # cask API responses.
+                    taps = {
+                      "homebrew/homebrew-core" = homebrew-core;
+                      "homebrew/homebrew-cask" = homebrew-cask;
+                      "nikitabobko/homebrew-tap" = nikitabobko-tap;
+                      "FelixKratz/homebrew-formulae" = felixkratz-formulae;
+                      "zkondor/homebrew-dist" = zkondor-dist;
+                      "pulumi/homebrew-tap" = pulumi-tap;
+                      "theboredteam/homebrew-boring-notch" = boring-notch-tap;
+                    };
+                    mutableTaps = false;
                   };
                 }
         ];
