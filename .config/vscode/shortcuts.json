@@ -115,4 +115,8 @@
         "command": "-cursorWordEndRight",
         "when": "textInputFocus"
     },
+    {
+        "key": "cmd+d",
+        "command": "workbench.view.extension.claude-sidebar-secondary"
+    },
 ]
